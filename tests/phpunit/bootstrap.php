@@ -33,7 +33,7 @@ require_once "{$_tests_dir}/includes/functions.php";
  */
 function _manually_load_plugin(): void {
 	_manually_load_required_plugins();
-	require_once dirname( dirname( dirname( __FILE__ ) ) ) . '/alert-real-estate.php';
+	require_once dirname( dirname( dirname( __FILE__ ) ) ) . '/bot-lite.php';
 }
 
 /**

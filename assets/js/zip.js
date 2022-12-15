@@ -14,7 +14,7 @@ const pluginFiles = [
     'languages/',
     'templates/',
     'changelog.txt',
-    'alert-real-estate.php',
+    'bot-lite.php',
 ];
 
 const removeFiles = [

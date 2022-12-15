@@ -20,7 +20,7 @@ class CitiesController extends RESTController {
      *
      * @var string
      */
-    protected $namespace = 'alert-real-estate/v1';
+    protected $namespace = 'bot-lite/v1';
 
     /**
      * Route base.

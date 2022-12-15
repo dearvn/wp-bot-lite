@@ -78,34 +78,49 @@ export default function AlertForm({ alert }: Props) {
                                 <AlertCard className="alert-general-info">
                                     <Input
                                         type="text"
-                                        label={__('Alert title', 'botlite')}
-                                        id="title"
+                                        label={__('Alert Name', 'botlite')}
+                                        id="name"
                                         placeholder={__(
-                                            'Enter Alert title, eg: Software Engineer',
+                                            'Enter Alert Name',
                                             'botlite'
                                         )}
-                                        value={form.title}
+                                        value={form.name}
                                         onChange={onChange}
                                     />
                                     <Input
                                         type="select"
-                                        label={__('Alert type', 'botlite')}
-                                        id="alert_type_id"
-                                        value={form.alert_type_id}
+                                        label={__('Type', 'botlite')}
+                                        id="type"
+                                        value={form.type}
                                         options={alertTypes}
                                         onChange={onChange}
                                     />
 
                                     <Input
-                                        type="select"
-                                        label={__('City Name', 'botlite')}
-                                        id="city_id"
-                                        value={form.city_id}
-                                        options={cityDropdowns}
+                                        type="text"
+                                        label={__('Ticker', 'botlite')}
+                                        id="ticker"
+                                        value={form.ticker}
+                                        onChange={onChange}
+                                    />
+
+                                    <Input
+                                        type="text"
+                                        label={__('Exchange', 'botlite')}
+                                        id="exchange"
+                                        value={form.exchange}
+                                        onChange={onChange}
+                                    />
+
+                                    <Input
+                                        type="number"
+                                        label={__('Cose', 'botlite')}
+                                        id="close"
+                                        value={form.close}
                                         onChange={onChange}
                                     />
                                 </AlertCard>
-                                <AlertCard className="alert-description-info">
+                                {/*<AlertCard className="alert-description-info">
                                     <Input
                                         type="text-editor"
                                         label={__('Alert details', 'botlite')}
@@ -118,7 +133,7 @@ export default function AlertForm({ alert }: Props) {
                                         value={form.description}
                                         onChange={onChange}
                                     />
-                                </AlertCard>
+                                        </AlertCard>*/}
                                 
 
                                 <div className="flex justify-end md:hidden">

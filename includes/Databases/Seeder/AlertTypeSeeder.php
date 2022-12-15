@@ -31,15 +31,29 @@ class AlertTypeSeeder extends DBSeeder {
         // Generate some alert_types.
         $alert_types = [
             [
-                'name'        => 'Rent',
-                'slug'        => 'rent',
+                'name'        => 'Buy Long',
+                'slug'        => 'buy_long',
                 'description' => 'This is a full time alert post.',
                 'created_at'  => current_datetime()->format( 'Y-m-d H:i:s' ),
                 'updated_at'  => current_datetime()->format( 'Y-m-d H:i:s' ),
             ],
             [
-                'name'        => 'Sell',
-                'slug'        => 'sell',
+                'name'        => 'Sell Short',
+                'slug'        => 'sell_short',
+                'description' => 'This is a part time alert post.',
+                'created_at'  => current_datetime()->format( 'Y-m-d H:i:s' ),
+                'updated_at'  => current_datetime()->format( 'Y-m-d H:i:s' ),
+            ],
+            [
+                'name'        => 'Exit Long',
+                'slug'        => 'exit_long',
+                'description' => 'This is a part time alert post.',
+                'created_at'  => current_datetime()->format( 'Y-m-d H:i:s' ),
+                'updated_at'  => current_datetime()->format( 'Y-m-d H:i:s' ),
+            ],
+            [
+                'name'        => 'Exit Short',
+                'slug'        => 'exit_short',
                 'description' => 'This is a part time alert post.',
                 'created_at'  => current_datetime()->format( 'Y-m-d H:i:s' ),
                 'updated_at'  => current_datetime()->format( 'Y-m-d H:i:s' ),

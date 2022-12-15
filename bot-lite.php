@@ -264,8 +264,8 @@ final class Wp_Bot_lite {
             // Check if handle is registered in wp-script
             $this->container['assets']->register_all_scripts();
 
-            // Load wp-script translation for alert-real-estate-app
-            wp_set_script_translations( 'alert-real-estate-app', 'botlite', plugin_dir_path( __FILE__ ) . 'languages/' );
+            // Load wp-script translation for bot-lite-app
+            wp_set_script_translations( 'bot-lite-app', 'botlite', plugin_dir_path( __FILE__ ) . 'languages/' );
         }
     }
 

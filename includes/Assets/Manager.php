@@ -43,7 +43,7 @@ class Manager {
      */
     public function get_styles(): array {
         return [
-            'alert-real-estate-css' => [
+            'bot-lite-css' => [
                 'src'     => BOT_LITE_BUILD . '/index.css',
                 'version' => BOT_LITE_VERSION,
                 'deps'    => [],
@@ -62,7 +62,7 @@ class Manager {
         $dependency = require_once BOT_LITE_DIR . '/build/index.asset.php';
 
         return [
-            'alert-real-estate-app' => [
+            'bot-lite-app' => [
                 'src'       => BOT_LITE_BUILD . '/index.js',
                 'version'   => filemtime( BOT_LITE_DIR . '/build/index.js' ),
                 'deps'      => $dependency['dependencies'],
@@ -111,8 +111,8 @@ class Manager {
             return;
         }
 
-        wp_enqueue_style( 'alert-real-estate-css' );
-        wp_enqueue_script( 'alert-real-estate-app' );
+        wp_enqueue_style( 'bot-lite-css' );
+        wp_enqueue_script( 'bot-lite-app' );
     }
 
     /**

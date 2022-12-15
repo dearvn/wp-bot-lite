@@ -34,20 +34,20 @@ export default function AlertSubmit() {
     };
 
     const validate = () => {
-        if (!form.title.length) {
-            return __('Please give a alert title.', 'botlite');
+        if (!form.name.length) {
+            return __('Please give a alert name.', 'botlite');
         }
 
-        if (form.alert_type_id === 0) {
+        if (form.type === 0) {
             return __('Please select alert type.', 'botlite');
         }
 
-        if (!form.description.length) {
-            return __('Please give alert description.', 'botlite');
+        if (!form.ticker.length) {
+            return __('Please give alert ticker.', 'botlite');
         }
 
-        if (form.city_id === 0) {
-            return __('Please select a city.', 'botlite');
+        if (form.close === 0) {
+            return __('Please give price.', 'botlite');
         }
 
         return '';

@@ -23,25 +23,14 @@ class AlertsMigration extends DBMigrator {
 
         $schema_alerts = "CREATE TABLE IF NOT EXISTS `{$wpdb->botlite_alerts}` (
             `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-            `title` varchar(255) NOT NULL,
-            `slug` varchar(255) NOT NULL,
-            `city_id` bigint(20) unsigned NOT NULL,
-            `alert_type_id` int(10) unsigned NOT NULL,
-            `description` mediumtext NOT NULL,
-            `is_active` tinyint(1) NOT NULL DEFAULT 1,
-            `created_by` bigint(20) unsigned NOT NULL,
-            `updated_by` bigint(20) unsigned NULL,
-            `deleted_by` bigint(20) unsigned NULL,
+            `name` varchar(255) NOT NULL,
+            `ticker` varchar(255) NOT NULL,
+            `type` varchar(255) NOT NULL,
+            `exchange` varchar(255) NOT NULL,
+            `interval` tinyint(1) unsigned NOT NULL,
+            `close` decimal(8,2) NOT NULL,
             `created_at` datetime NOT NULL,
-            `updated_at` datetime NOT NULL,
-            `deleted_at` datetime NULL,
-            PRIMARY KEY (`id`),
-            KEY `city_id` (`city_id`),
-            UNIQUE KEY `slug` (`slug`),
-            KEY `is_active` (`is_active`),
-            KEY `alert_type_id` (`alert_type_id`),
-            KEY `created_by` (`created_by`),
-            KEY `updated_by` (`updated_by`)
+            PRIMARY KEY (`id`)
         ) $charset_collate";
 
         // Create the tables.

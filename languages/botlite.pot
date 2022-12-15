@@ -144,11 +144,11 @@ msgstr ""
 msgid "Candidate"
 msgstr ""
 
-#: alert-real-estate.php:310
+#: bot-lite.php:310
 msgid "Settings"
 msgstr ""
 
-#: alert-real-estate.php:311
+#: bot-lite.php:311
 msgid "Documentation"
 msgstr ""
 

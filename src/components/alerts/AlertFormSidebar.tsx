@@ -27,10 +27,7 @@ export default function AlertFormSidebar({ loading }: Props) {
             slug: 'alert-description-info',
             label: __('Alert Description', 'botlite'),
         },
-        {
-            slug: 'alert-city-info',
-            label: __('City Information', 'botlite'),
-        },
+        
     ];
 
     return (

@@ -16,7 +16,7 @@ abstract class RESTController extends WP_REST_Controller {
      *
      * @var string
      */
-    protected $namespace = 'alert-real-estate/v1';
+    protected $namespace = 'bot-lite/v1';
 
     /**
      * Check default permission for rest routes.

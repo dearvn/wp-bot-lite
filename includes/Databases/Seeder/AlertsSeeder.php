@@ -29,19 +29,17 @@ class AlertsSeeder extends DBSeeder {
         }
 
         // Generate some alerts.
-        $alerts = [
-            [
-                'title'       => 'First Alert Post',
-                'slug'        => 'first-alert-post',
-                'description' => 'This is a simple alert post.',
-                'is_active'   => 1,
-                'city_id'  => 1,
-                'alert_type_id' => 1,
-                'created_by'  => get_current_user_id(),
-                'created_at'  => current_datetime()->format( 'Y-m-d H:i:s' ),
-                'updated_at'  => current_datetime()->format( 'Y-m-d H:i:s' ),
-            ],
-        ];
+        $alerts = array(
+            array(
+                'name'          => 'Enter Call',
+                'type'          => 'Buy Long',
+                'ticker'        => 'AAPL',
+                'interval'      => 5,
+                'close'         => 154.20,
+                'exchange'      => 'NASDAQ',
+                'created_at'            => current_datetime()->format( 'Y-m-d H:i:s' ),
+            ),
+        );
 
         // Create each of the alerts.
         foreach ( $alerts as $alert ) {

@@ -18,7 +18,7 @@ class AlertRestApiTest extends \WP_UnitTestCase {
      *
      * @var string
      */
-    protected $namespace = 'alert-real-estate/v1';
+    protected $namespace = 'bot-lite/v1';
 
     /**
      * Alert Instance.

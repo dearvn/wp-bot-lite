@@ -20,23 +20,33 @@ export const useTableHeaderData = (): ITableHeader[] => {
             className: '',
         },
         {
-            key: 'title',
-            title: __('Alert', 'botlite'),
+            key: 'name',
+            title: __('Name', 'botlite'),
             className: '',
         },
         {
-            key: 'alert_type',
-            title: __('Alert type', 'botlite'),
+            key: 'type',
+            title: __('Type', 'botlite'),
             className: '',
         },
         {
-            key: 'city',
-            title: __('City', 'botlite'),
+            key: 'ticker',
+            title: __('Ticker', 'botlite'),
             className: '',
         },
         {
-            key: 'status',
-            title: __('Status', 'botlite'),
+            key: 'exchange',
+            title: __('Exchange', 'botlite'),
+            className: '',
+        },
+        {
+            key: 'close',
+            title: __('Close', 'botlite'),
+            className: '',
+        },
+        {
+            key: 'created_at',
+            title: __('Created at time', 'botlite'),
             className: '',
         },
         {
@@ -69,37 +79,33 @@ export const useTableRowData = (alerts = [], checked: number[]): ITableRow[] => 
                     className: '',
                 },
                 {
-                    key: 'title',
-                    value: row.title,
+                    key: 'name',
+                    value: row.name,
                     className: '',
                 },
                 {
-                    key: 'alert_type',
-                    value: row.alert_type?.name,
+                    key: 'type',
+                    value: row.type,
                     className: '',
                 },
                 {
-                    key: 'city',
-                    value: (
-                        <div className="flex">
-                            <div className="flex-6">{row.city?.name}</div>
-                        </div>
-                    ),
+                    key: 'ticker',
+                    value: row.ticker,
                     className: '',
                 },
                 {
-                    key: 'status',
-                    value: (
-                        <Badge
-                            text={capitalize(row.status)}
-                            type={
-                                row.status === 'published'
-                                    ? 'success'
-                                    : 'default'
-                            }
-                            hasIcon={true}
-                        />
-                    ),
+                    key: 'exchange',
+                    value: row.exchange,
+                    className: '',
+                },
+                {
+                    key: 'close',
+                    value: row.close,
+                    className: '',
+                },
+                {
+                    key: 'created_at',
+                    value: row.created_at,
                     className: '',
                 },
                 {

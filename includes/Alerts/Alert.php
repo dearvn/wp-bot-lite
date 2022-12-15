@@ -28,30 +28,26 @@ class Alert extends BaseModel {
      */
     public function prepare_for_database( array $data ): array {
         $defaults = [
-            'title'       => '',
-            'slug'        => '',
-            'description' => '',
-            'city_id'  => 0,
-            'is_active'   => 1,
-            'alert_type_id' => null,
-            'created_by'  => get_current_user_id(),
+            'name'          => '',
+            'close'         => '',
+            'type'          => '',
+            'interval'      => '',
+            'ticker'        => '',
+            'exchange'      => '',
             'created_at'  => current_datetime()->format( 'Y-m-d H:i:s' ),
-            'updated_at'  => current_datetime()->format( 'Y-m-d H:i:s' ),
         ];
 
         $data = wp_parse_args( $data, $defaults );
 
         // Sanitize template data
         return [
-            'title'       => $this->sanitize( $data['title'], 'text' ),
-            'slug'        => $this->sanitize( $data['slug'], 'text' ),
-            'description' => $this->sanitize( $data['description'], 'block' ),
-            'city_id'  => $this->sanitize( $data['city_id'], 'number' ),
-            'is_active'   => $this->sanitize( $data['is_active'], 'switch' ),
-            'alert_type_id' => $this->sanitize( $data['alert_type_id'], 'number' ),
-            'created_by'  => $this->sanitize( $data['created_by'], 'number' ),
-            'created_at'  => $this->sanitize( $data['created_at'], 'text' ),
-            'updated_at'  => $this->sanitize( $data['updated_at'], 'text' ),
+            'name'       => $this->sanitize( $data['name'], 'text' ),
+            'close'        => $this->sanitize( $data['close'], 'number' ),
+            'ticker' => $this->sanitize( $data['ticker'], 'ticker' ),
+            'exchange' => $this->sanitize( $data['exchange'], 'exchange' ),
+            'type' => $this->sanitize( $data['type'], 'type' ),
+            'interval'  => $this->sanitize( $data['interval'], 'number' ),
+            'created_at'  => $this->sanitize( $data['created_at'], 'text' )
         ];
     }
 
@@ -68,16 +64,14 @@ class Alert extends BaseModel {
         $alert_type = static::get_alert_type( $alert );
 
         $data = [
-            'id'          => (int) $alert->id,
-            'title'       => $alert->title,
-            'slug'        => $alert->slug,
-            'alert_type'    => $alert_type,
-            'is_remote'   => static::get_is_remote( $alert_type ),
-            'status'      => AlertStatus::get_status_by_alert( $alert ),
-            'city'     => static::get_alert_city( $alert ),
-            'description' => $alert->description,
-            'created_at'  => $alert->created_at,
-            'updated_at'  => $alert->updated_at,
+            'id'            => (int) $alert->id,
+            'name'          => $alert->name,
+            'ticker'        => $alert->ticker,
+            'type'          => $alert->type,
+            'exchange'      => $alert->exchange,
+            'interval'      => $alert->interval,
+            'close'                 => $alert->close,
+            'created_at'    => date('m/d/Y H:i', strtotime($alert->created_at)),
         ];
 
         return $data;

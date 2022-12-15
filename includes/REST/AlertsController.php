@@ -292,102 +292,69 @@ class AlertsController extends RESTController {
             'title'      => 'alert',
             'type'       => 'object',
             'properties' => [
-                'id' => [
-                    'description' => __( 'ID of the alert', 'botlite' ),
+                'id'          => array(
+                    'description' => __( 'ID of the alert', 'tradingview_alerts' ),
                     'type'        => 'integer',
-                    'context'     => [ 'view', 'edit' ],
+                    'context'     => array( 'view', 'edit' ),
                     'readonly'    => true,
-                ],
-                'title' => [
-                    'description' => __( 'Alert title', 'botlite' ),
+                ),
+                'name'       => array(
+                        'description' => __( 'Alert Name', 'tradingview_alerts' ),
+                        'type'        => 'string',
+                        'context'     => array( 'view', 'edit' ),
+                        'required'    => true,
+                        'minLength'   => 1,
+                        'arg_options' => array(
+                                'sanitize_callback' => 'sanitize_text_field',
+                        ),
+                ),
+                'ticker'       => array(
+                        'description' => __( 'Ticker', 'tradingview_alerts' ),
+                        'type'        => 'string',
+                        'context'     => array( 'view', 'edit' ),
+                        'required'    => true,
+                        'minLength'   => 1,
+                        'arg_options' => array(
+                                'sanitize_callback' => 'sanitize_text_field',
+                        ),
+                ),
+                'type'       => array(
+                    'description' => __( 'Type', 'tradingview_alerts' ),
                     'type'        => 'string',
-                    'context'     => [ 'view', 'edit' ],
+                    'context'     => array( 'view', 'edit' ),
                     'required'    => true,
                     'minLength'   => 1,
-                    'arg_options' => [
-                        'sanitize_callback' => 'sanitize_text_field',
-                    ],
-                ],
-                'slug' => [
-                    'description' => __( 'Alert slug', 'botlite' ),
-                    'type'        => 'string',
-                    'context'     => [ 'view', 'edit' ],
-                    'minLength'   => 1,
-                    'arg_options' => [
-                        'sanitize_callback' => [ $this, 'sanitize_alert_slug' ],
-                    ],
-                ],
-                'description' => [
-                    'description' => __( 'Alert description', 'botlite' ),
-                    'type'        => 'string',
-                    'context'     => [ 'view', 'edit' ],
-                    'required'    => true,
-                    'minLength'   => 1,
-                ],
-                'alert_type_id' => [
-                    'description' => __( 'Alert type', 'botlite' ),
-                    'type'        => 'integer',
-                    'context'     => [ 'view', 'edit' ],
-                    'required'    => true,
-                    'arg_options' => [
-                        'sanitize_callback' => 'absint',
-                    ],
-                ],
-                'city_id' => [
-                    'description' => __( 'City', 'botlite' ),
-                    'type'        => 'integer',
-                    'context'     => [ 'view', 'edit' ],
-                    'required'    => true,
-                    'arg_options' => [
-                        'sanitize_callback' => 'absint',
-                    ],
-                ],
-                'is_active' => [
-                    'description' => __( 'Alert status', 'botlite' ),
-                    'type'        => 'boolean',
-                    'context'     => [ 'view', 'edit' ],
-                    'required'    => true,
-                    'arg_options' => [
-                        'sanitize_callback' => 'absint',
-                    ],
-                ],
-                'created_by' => [
-                    'description' => __( 'Created by user', 'botlite' ),
-                    'type'        => 'integer',
-                    'context'     => [ 'view', 'edit' ],
-                    'arg_options' => [
-                        'sanitize_callback' => 'absint',
-                    ],
-                ],
-                'updated_by' => [
-                    'description' => __( 'Updated by user', 'botlite' ),
-                    'type'        => 'integer',
-                    'context'     => [ 'view', 'edit' ],
-                    'arg_options' => [
-                        'sanitize_callback' => 'absint',
-                    ],
-                ],
-                'created_at' => [
-                    'description' => __( 'Created at time', 'botlite' ),
-                    'type'        => 'string',
-                    'context'     => [ 'view', 'edit' ],
-                    'format'      => 'date-time',
-                    'readonly'    => true,
-                ],
-                'updated_at' => [
-                    'description' => __( 'Updated at time', 'botlite' ),
-                    'type'        => 'string',
-                    'context'     => [ 'view', 'edit' ],
-                    'format'      => 'date-time',
-                    'readonly'    => true,
-                ],
-                'deleted_at' => [
-                    'description' => __( 'Deleted at time', 'botlite' ),
-                    'type'        => 'string',
-                    'context'     => [ 'view', 'edit' ],
-                    'format'      => 'date-time',
-                    'readonly'    => true,
-                ],
+                    'arg_options' => array(
+                            'sanitize_callback' => 'sanitize_text_field',
+                    ),
+                ),
+                'exchange'       => array(
+                        'description' => __( 'Exchange', 'tradingview_alerts' ),
+                        'type'        => 'string',
+                        'context'     => array( 'view', 'edit' ),
+                        'required'    => true,
+                        'minLength'   => 1,
+                        'arg_options' => array(
+                                'sanitize_callback' => 'sanitize_text_field',
+                        ),
+                ),
+                'close'       => array(
+                        'description' => __( 'Close', 'tradingview_alerts' ),
+                        'type'        => 'string',
+                        'context'     => array( 'view', 'edit' ),
+                        'required'    => true,
+                        'minLength'   => 1,
+                        'arg_options' => array(
+                                'sanitize_callback' => 'sanitize_text_field',
+                        ),
+                ),
+                'created_at'  => array(
+                        'description' => __( 'Created at time', 'tradingview_alerts' ),
+                        'type'        => 'string',
+                        'context'     => array( 'view', 'edit' ),
+                        'format'      => 'date-time',
+                        'readonly'    => true,
+                )
             ],
         ];
 
@@ -406,20 +373,21 @@ class AlertsController extends RESTController {
      * @return object|WP_Error
      */
     protected function prepare_item_for_database( $request ) {
-        $data = [];
-        $data['title']       = $request['title'];
-        $data['slug']        = $this->generate_unique_slug( $request );
-        $data['description'] = $request['description'];
-        $data['city_id']  = $request['city_id'];
-        $data['is_active']   = $request['is_active'];
-        $data['alert_type_id'] = $request['alert_type_id'];
+        $data                           = array();
+        $data['name']           = $request['name'];
+        $data['ticker']         = $request['ticker'];
+        $data['type']           = $request['type'];
+        $data['exchange']       = $request['exchange'];
+        $data['interval']       = $request['interval'];
+        $data['close']          = $request['close'];
 
-        if ( empty( $request['id'] ) ) {
-            $data['created_by'] = empty( $request['created_by'] ) ? get_current_user_id() : absint( $request['created_by'] );
-            $data['created_at']  = empty( $request['created_at'] ) ? current_datetime()->format( 'Y-m-d H:i:s' ) : $request['created_at'];
+        if (!empty($request['time'])) {
+            $tz_local = new \DateTimeZone(get_option('gmt_offset'));
+            $date = new \DateTime($request['time']);
+            $date->setTimezone($tz_local);
+            $data['created_at'] = $date->format("Y-m-d H:i:s");
         } else {
-            $data['updated_by'] = empty( $request['updated_by'] ) ? get_current_user_id() : absint( $request['updated_by'] );
-            $data['updated_at']  = empty( $request['updated_at'] ) ? current_datetime()->format( 'Y-m-d H:i:s' ) : $request['updated_at'];
+            $data['created_at']     = current_datetime()->format( 'Y-m-d H:i:s' );
         }
 
         return $data;

@@ -133,20 +133,20 @@ http://[domain]/wp-admin/admin.php?page=botlite#/
 
 1. **Alert Types**
     - Method: `GET`
-    - URL: http://[domain]/wp-json/alert-real-estate/v1/alert-types
+    - URL: http://[domain]/wp-json/bot-lite/v1/alert-types
 1. **Cities dropdown**
     - Method: `GET`
-    - URL: http://[domain]/wp-json/alert-real-estate/v1/cities/dropdown
+    - URL: http://[domain]/wp-json/bot-lite/v1/cities/dropdown
 1. **Alert Lists**
     - Method: `GET`
-    - URL: http://[domain]/wp-json/alert-real-estate/v1/alerts
+    - URL: http://[domain]/wp-json/bot-lite/v1/alerts
 1. **Alert Details**
     - Method: `GET`
-    - URL By ID: http://[domain]/wp-json/alert-real-estate/v1/alerts/1
-    - URL By Slug: http://[domain]/wp-json/alert-real-estate/v1/alerts/first-alert
+    - URL By ID: http://[domain]/wp-json/bot-lite/v1/alerts/1
+    - URL By Slug: http://[domain]/wp-json/bot-lite/v1/alerts/first-alert
 1. **Create Alert**
     - Method: `POST`
-    - URL: http://[domain]/wp-json/alert-real-estate/v1/Alerts
+    - URL: http://[domain]/wp-json/bot-lite/v1/Alerts
     - Body:
     ```json
     {
@@ -160,7 +160,7 @@ http://[domain]/wp-admin/admin.php?page=botlite#/
     ```
 1. **Update Alert**
     - Method: `PUT`
-    - URL: http://[domain]/wp-json/alert-real-estate/v1/alerts/1
+    - URL: http://[domain]/wp-json/bot-lite/v1/alerts/1
     - Body:
     ```json
     {
@@ -174,7 +174,7 @@ http://[domain]/wp-admin/admin.php?page=botlite#/
     ```
 1. **Delete Alerts**
     - Method: `DELETE`
-    - URL: http://[domain]/wp-json/alert-real-estate/v1/alerts
+    - URL: http://[domain]/wp-json/bot-lite/v1/alerts
     - Body:
     ```json
     {
@@ -205,13 +205,13 @@ http://[domain]/wp-admin/admin.php?page=botlite#/
 
 **Get specific file errors of the project:**
 ```sh
-vendor/bin/phpcs alert-real-estate.php
+vendor/bin/phpcs bot-lite.php
 ```
 
 
 **Fix specific file errors of the project:**
 ```sh
-vendor/bin/phpcbf alert-real-estate.php
+vendor/bin/phpcbf bot-lite.php
 ```
 </details>
 

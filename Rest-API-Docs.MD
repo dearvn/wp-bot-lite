@@ -5,7 +5,7 @@ Details about the REST API documentation of the plugin.
 ---
 
 #### City dropdown list API
-**URL** - http://localhost/wpex/wp-json/alert-real-estate/v1/cities/dropdown
+**URL** - http://localhost/wpex/wp-json/bot-lite/v1/cities/dropdown
 **Method** - GET
 **Response** -
 ```json
@@ -26,7 +26,7 @@ Details about the REST API documentation of the plugin.
 ```
 
 #### Alert Type List API
-**URL** - http://localhost/wpex/wp-json/alert-real-estate/v1/alert-types
+**URL** - http://localhost/wpex/wp-json/bot-lite/v1/alert-types
 **Method** - GET
 **Response** -
 ```json
@@ -41,12 +41,12 @@ Details about the REST API documentation of the plugin.
         "_links": {
             "self": [
                 {
-                    "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alert-types/1"
+                    "href": "http://localhost/wpex/wp-json/bot-lite/v1/alert-types/1"
                 }
             ],
             "collection": [
                 {
-                    "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alert-types"
+                    "href": "http://localhost/wpex/wp-json/bot-lite/v1/alert-types"
                 }
             ]
         }
@@ -61,12 +61,12 @@ Details about the REST API documentation of the plugin.
         "_links": {
             "self": [
                 {
-                    "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alert-types/2"
+                    "href": "http://localhost/wpex/wp-json/bot-lite/v1/alert-types/2"
                 }
             ],
             "collection": [
                 {
-                    "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alert-types"
+                    "href": "http://localhost/wpex/wp-json/bot-lite/v1/alert-types"
                 }
             ]
         }
@@ -81,12 +81,12 @@ Details about the REST API documentation of the plugin.
         "_links": {
             "self": [
                 {
-                    "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alert-types/3"
+                    "href": "http://localhost/wpex/wp-json/bot-lite/v1/alert-types/3"
                 }
             ],
             "collection": [
                 {
-                    "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alert-types"
+                    "href": "http://localhost/wpex/wp-json/bot-lite/v1/alert-types"
                 }
             ]
         }
@@ -96,7 +96,7 @@ Details about the REST API documentation of the plugin.
 
 
 #### Alert Lists API
-**URL** - http://localhost/wpex/wp-json/alert-real-estate/v1/alerts
+**URL** - http://localhost/wpex/wp-json/bot-lite/v1/alerts
 **Method** - `GET`
 **Middleware** - WordPress user logged in.
 **Parameters** -
@@ -108,7 +108,7 @@ orderby=id
 order=asc
 ```
 **Full Endpoint** with all of the supported params -
-http://localhost/wpex/wp-json/alert-real-estate/v1/alerts?page=1&per_page=10&search=first
+http://localhost/wpex/wp-json/bot-lite/v1/alerts?page=1&per_page=10&search=first
 
 **API Response**
 ```json
@@ -134,12 +134,12 @@ http://localhost/wpex/wp-json/alert-real-estate/v1/alerts?page=1&per_page=10&sea
         "_links": {
             "self": [
                 {
-                    "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alerts/1"
+                    "href": "http://localhost/wpex/wp-json/bot-lite/v1/alerts/1"
                 }
             ],
             "collection": [
                 {
-                    "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alerts"
+                    "href": "http://localhost/wpex/wp-json/bot-lite/v1/alerts"
                 }
             ]
         }
@@ -148,7 +148,7 @@ http://localhost/wpex/wp-json/alert-real-estate/v1/alerts?page=1&per_page=10&sea
 ```
 
 #### Alert Detail API
-**URL** - http://localhost/wpex/wp-json/alert-real-estate/v1/alerts/2
+**URL** - http://localhost/wpex/wp-json/bot-lite/v1/alerts/2
 **Method** - `GET`
 **Middleware** - WordPress user logged in.
 **Response** -
@@ -174,12 +174,12 @@ http://localhost/wpex/wp-json/alert-real-estate/v1/alerts?page=1&per_page=10&sea
     "_links": {
         "self": [
             {
-                "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alerts/2"
+                "href": "http://localhost/wpex/wp-json/bot-lite/v1/alerts/2"
             }
         ],
         "collection": [
             {
-                "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alerts"
+                "href": "http://localhost/wpex/wp-json/bot-lite/v1/alerts"
             }
         ]
     }
@@ -198,7 +198,7 @@ http://localhost/wpex/wp-json/alert-real-estate/v1/alerts?page=1&per_page=10&sea
 ```
 
 #### Alert Create API
-**URL** - http://localhost/wpex/wp-json/alert-real-estate/v1/alerts
+**URL** - http://localhost/wpex/wp-json/bot-lite/v1/alerts
 **Method** - `POST`
 **Middleware** - WordPress user logged in.
 **Body** -
@@ -235,19 +235,19 @@ http://localhost/wpex/wp-json/alert-real-estate/v1/alerts?page=1&per_page=10&sea
     "_links": {
         "self": [
             {
-                "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alerts/49"
+                "href": "http://localhost/wpex/wp-json/bot-lite/v1/alerts/49"
             }
         ],
         "collection": [
             {
-                "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alerts"
+                "href": "http://localhost/wpex/wp-json/bot-lite/v1/alerts"
             }
         ]
     }
 }
 ```
 #### Alert Update API
-**URL** - http://localhost/wpex/wp-json/alert-real-estate/v1/alerts/2
+**URL** - http://localhost/wpex/wp-json/bot-lite/v1/alerts/2
 **Method** - `PUT`
 **Middleware** - WordPress user logged in.
 **Body** -
@@ -285,12 +285,12 @@ http://localhost/wpex/wp-json/alert-real-estate/v1/alerts?page=1&per_page=10&sea
     "_links": {
         "self": [
             {
-                "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alerts/49"
+                "href": "http://localhost/wpex/wp-json/bot-lite/v1/alerts/49"
             }
         ],
         "collection": [
             {
-                "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alerts"
+                "href": "http://localhost/wpex/wp-json/bot-lite/v1/alerts"
             }
         ]
     }
@@ -299,7 +299,7 @@ http://localhost/wpex/wp-json/alert-real-estate/v1/alerts?page=1&per_page=10&sea
 
 
 #### Alerts Delete API
-**URL** - http://localhost/wpex/wp-json/alert-real-estate/v1/alerts
+**URL** - http://localhost/wpex/wp-json/bot-lite/v1/alerts
 **Method** - `DELETE`
 **Middleware** - WordPress user logged in.
 **Body** -
