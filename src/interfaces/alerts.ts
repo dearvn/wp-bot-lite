@@ -10,34 +10,29 @@ export interface IAlert {
     id: number;
 
     /**
-     * Alert title.
+     * Alert name.
      */
-    title: string;
+    name: string;
 
     /**
      * Alert description.
      */
-    description: string;
+    type: string;
 
     /**
-     * Alert Type ID.
+     * Alert Ticker.
      */
-    alert_type_id: number;
+    ticker: string;
 
     /**
-     * City ID.
+     * Alert Exchange.
      */
-    city_id: number;
+     exchange: string;
 
     /**
-     * Status published or draft
+     * Close.
      */
-    is_active: boolean | number;
-
-    /**
-     * Alert status.
-     */
-    status?: 'draft' | 'published' | 'trashed';
+    close: number;
 }
 
 export interface IAlertFormData extends IAlert {}

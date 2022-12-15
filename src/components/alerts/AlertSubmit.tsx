@@ -38,12 +38,16 @@ export default function AlertSubmit() {
             return __('Please give a alert name.', 'botlite');
         }
 
-        if (form.type === 0) {
+        if (!form.type.length) {
             return __('Please select alert type.', 'botlite');
         }
 
         if (!form.ticker.length) {
             return __('Please give alert ticker.', 'botlite');
+        }
+
+        if (!form.exchange.length) {
+            return __('Please give alert exchange.', 'botlite');
         }
 
         if (form.close === 0) {

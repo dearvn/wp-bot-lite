@@ -88,11 +88,10 @@ export default function AlertForm({ alert }: Props) {
                                         onChange={onChange}
                                     />
                                     <Input
-                                        type="select"
+                                        type="text"
                                         label={__('Type', 'botlite')}
                                         id="type"
                                         value={form.type}
-                                        options={alertTypes}
                                         onChange={onChange}
                                     />
 

@@ -17,11 +17,6 @@ const Dashboard = () => {
                 <h3 className="font-medium text-lg">
                     {__('Dashboard', 'botlite')}
                 </h3>
-                <p>
-                    {__('Edit Dashboard component at ', 'botlite')}
-                    <code>src/components/Dashboard.jsx</code>
-                </p>
-
                 <div className="mt-4">
                     <Button
                         type="primary"
