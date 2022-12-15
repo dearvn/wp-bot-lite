@@ -34,7 +34,7 @@ define( 'WP_DEBUG', true );
 
 // WARNING WARNING WARNING!
 // These tests will DROP ALL TABLES in the database with the prefix named below.
-// DO NOT use a production database or one that is shared with something else.
+// DO NOT use a alertion database or one that is shared with something else.
 
 define( 'DB_NAME'       , getenv( 'WP_DB_NAME' ) ?: 'wp_phpunit_react_kit' );
 define( 'DB_USER'       , getenv( 'WP_DB_USER' ) ?: 'root' );

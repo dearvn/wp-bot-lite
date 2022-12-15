@@ -1,4 +1,4 @@
-# WP Land Lite
+# WP Bot Lite
 A simple project to manage real estate for agency to work in WordPress plugin development using WordPress Rest API, WP-script, React, React Router, Tailwind CSS, PostCSS, Eslint, WP-Data, WP-Data Store, React Components, React CRUD, i18n, PHPUnit Test, JestUnit Test, e2e Test, Gutenberg blocks and PHP OOP plugin architecture easily in a minute.
 
 ----
@@ -28,7 +28,7 @@ A simple project to manage real estate for agency to work in WordPress plugin de
 ### Quick Start
 ```sh
 # Clone the Git repository
-git clone https://github.com/dearvn/land-lite.git
+git clone https://github.com/dearvn/bot-lite.git
 
 # Install PHP-composer dependencies [It's empty]
 composer install
@@ -42,7 +42,7 @@ npm start
 # Start development with hot reload (Frontend components will be updated automatically if any changes are made)
 npm run start:hot
 
-# To run in production
+# To run in alertion
 npm run build
 ```
 
@@ -64,7 +64,7 @@ npm run zip
 npm run release
 ```
 
-After running `release` command, there will be a folder called `/dist` will be generated at the root directory with `wp-land-lite.zip` project files.
+After running `release` command, there will be a folder called `/dist` will be generated at the root directory with `wp-bot-lite.zip` project files.
 
 
 ### Run PHP Unit Test
@@ -125,56 +125,56 @@ composer run test:all
 
 ### Browse Plugin
 
-http://[domain]/wp-admin/admin.php?page=landlite#/
+http://[domain]/wp-admin/admin.php?page=botlite#/
 
 ### REST API's
 
 #### REST API Documentation
 
-1. **Product Types**
+1. **Alert Types**
     - Method: `GET`
-    - URL: http://[domain]/wp-json/product-real-estate/v1/product-types
+    - URL: http://[domain]/wp-json/alert-real-estate/v1/alert-types
 1. **Cities dropdown**
     - Method: `GET`
-    - URL: http://[domain]/wp-json/product-real-estate/v1/cities/dropdown
-1. **Product Lists**
+    - URL: http://[domain]/wp-json/alert-real-estate/v1/cities/dropdown
+1. **Alert Lists**
     - Method: `GET`
-    - URL: http://[domain]/wp-json/product-real-estate/v1/products
-1. **Product Details**
+    - URL: http://[domain]/wp-json/alert-real-estate/v1/alerts
+1. **Alert Details**
     - Method: `GET`
-    - URL By ID: http://[domain]/wp-json/product-real-estate/v1/products/1
-    - URL By Slug: http://[domain]/wp-json/product-real-estate/v1/products/first-product
-1. **Create Product**
+    - URL By ID: http://[domain]/wp-json/alert-real-estate/v1/alerts/1
+    - URL By Slug: http://[domain]/wp-json/alert-real-estate/v1/alerts/first-alert
+1. **Create Alert**
     - Method: `POST`
-    - URL: http://[domain]/wp-json/product-real-estate/v1/Products
+    - URL: http://[domain]/wp-json/alert-real-estate/v1/Alerts
     - Body:
     ```json
     {
-        "title": "Simple Product Post",
-        "slug": "simple-product-post",
-        "description": "Simple product post description",
+        "title": "Simple Alert Post",
+        "slug": "simple-alert-post",
+        "description": "Simple alert post description",
         "city_id": 1,
-        "product_type_id": 2,
+        "alert_type_id": 2,
         "is_active": 1
     }
     ```
-1. **Update Product**
+1. **Update Alert**
     - Method: `PUT`
-    - URL: http://[domain]/wp-json/product-real-estate/v1/products/1
+    - URL: http://[domain]/wp-json/alert-real-estate/v1/alerts/1
     - Body:
     ```json
     {
-        "title": "Simple Product Post Updated",
-        "slug": "simple-product-post-updated",
-        "description": "Simple product post description",
+        "title": "Simple Alert Post Updated",
+        "slug": "simple-alert-post-updated",
+        "description": "Simple alert post description",
         "city_id": 1,
-        "product_type_id": 2,
+        "alert_type_id": 2,
         "is_active": 1
     }
     ```
-1. **Delete Products**
+1. **Delete Alerts**
     - Method: `DELETE`
-    - URL: http://[domain]/wp-json/product-real-estate/v1/products
+    - URL: http://[domain]/wp-json/alert-real-estate/v1/alerts
     - Body:
     ```json
     {
@@ -183,20 +183,20 @@ http://[domain]/wp-admin/admin.php?page=landlite#/
     ```
 
 **Detailed Documentation** -
-[View Detailed documentations with parameters and responses of the REST API](https://github.com/dearvn/land-lite/blob/main/Rest-API-Docs.MD)
+[View Detailed documentations with parameters and responses of the REST API](https://github.com/dearvn/bot-lite/blob/main/Rest-API-Docs.MD)
 
 ### Version & Changelogs
 **v0.0.1 - 05/12/2022**
 
-1. New Feature : Product Create.
-2. New Feature : Product Update.
-3. New Feature : Product Delete.
-4. New Feature : Product Status change.
+1. New Feature : Alert Create.
+2. New Feature : Alert Update.
+3. New Feature : Alert Delete.
+4. New Feature : Alert Status change.
 5. New API: City dropdown list.
 6. New: Updated logo icon and plugin name.
 7. New Components: Input Text-Editor, Improved design.
 8. Refactor: Refactored codebase and updated docs.
-9. New: Product type seeder.
+9. New: Alert type seeder.
 10. Chore: Zip file generator.
 11. Chore: i18n localization generator.
 
@@ -205,13 +205,13 @@ http://[domain]/wp-admin/admin.php?page=landlite#/
 
 **Get specific file errors of the project:**
 ```sh
-vendor/bin/phpcs product-real-estate.php
+vendor/bin/phpcs alert-real-estate.php
 ```
 
 
 **Fix specific file errors of the project:**
 ```sh
-vendor/bin/phpcbf product-real-estate.php
+vendor/bin/phpcbf alert-real-estate.php
 ```
 </details>
 
@@ -219,38 +219,38 @@ vendor/bin/phpcbf product-real-estate.php
 <details>
     <summary>Simple Version with raw PHP</summary>
 
-https://github.com/dearvn/land-lite/releases/tag/vSimple
+https://github.com/dearvn/bot-lite/releases/tag/vSimple
 </details>
 
 <details>
     <summary>Version with EsLint and i18n Setup</summary>
 
-https://github.com/dearvn/land-lite/releases/tag/vSimpleEslint
+https://github.com/dearvn/bot-lite/releases/tag/vSimpleEslint
 </details>
 
 
 <details>
     <summary>Version with EsLint, i18n and React Router Setup</summary>
 
-https://github.com/dearvn/land-lite/releases/tag/vReactRouter
+https://github.com/dearvn/bot-lite/releases/tag/vReactRouter
 </details>
 
 <details>
     <summary>Version with PostCSS and Tailwind CSS Setup</summary>
 
-https://github.com/dearvn/land-lite/releases/tag/vTailwindCss
+https://github.com/dearvn/bot-lite/releases/tag/vTailwindCss
 </details>
 
 <details>
     <summary>Version with PHPCS setup</summary>
 
-https://github.com/dearvn/land-lite/releases/tag/vPHPCS
+https://github.com/dearvn/bot-lite/releases/tag/vPHPCS
 </details>
 
 <details>
     <summary>Version with PHP OOP Architecture</summary>
 
-https://github.com/dearvn/land-lite/releases/tag/vPhpOOP
+https://github.com/dearvn/bot-lite/releases/tag/vPhpOOP
 </details>
 
  ## Gutenberg blocks

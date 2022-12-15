@@ -6,9 +6,9 @@ import { register } from '@wordpress/data';
 /**
  * Internal dependencies.
  */
-import ProductStore from './products';
+import AlertStore from './alerts';
 
 /**
  * Register stores.
  */
-register(ProductStore);
+register(AlertStore);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dearvn\LandLite\User;
+namespace Dearvn\BotLite\User;
 
 /**
  * User related hooks.
@@ -43,12 +43,12 @@ class Hooks {
         ?>
         <table class="form-table">
             <tr>
-                <th><label for="user_type"><?php esc_html_e( 'User type', 'landlite' ); ?></label></th>
+                <th><label for="user_type"><?php esc_html_e( 'User type', 'botlite' ); ?></label></th>
                 <td>
                     <select name="user_type" id="user_type">
-                        <option value=""><?php esc_html_e( '-- Select user type --', 'landlite' ); ?></option>
-                        <option value="city" <?php selected( $user_type, 'city' ); ?>><?php esc_html_e( 'City', 'landlite' ); ?></option>
-                        <option value="candidate" <?php selected( $user_type, 'candidate' ); ?>><?php esc_html_e( 'Candidate', 'landlite' ); ?></option>
+                        <option value=""><?php esc_html_e( '-- Select user type --', 'botlite' ); ?></option>
+                        <option value="city" <?php selected( $user_type, 'city' ); ?>><?php esc_html_e( 'City', 'botlite' ); ?></option>
+                        <option value="candidate" <?php selected( $user_type, 'candidate' ); ?>><?php esc_html_e( 'Candidate', 'botlite' ); ?></option>
                     </select>
                     <!-- Create hidden nonce field -->
                     <input type="hidden" name="user_type_nonce" value="<?php echo wp_create_nonce( 'user_type_nonce' ); ?>" />

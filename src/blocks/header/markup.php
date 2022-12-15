@@ -10,11 +10,11 @@
 
 ?>
 <div <?php echo get_block_wrapper_attributes(); // phpcs:ignore ?>>
-    <h2 class="wp-block-wp-land-lite-header_title">
+    <h2 class="wp-block-wp-bot-lite-header_title">
         <?php echo wp_kses_post( $attributes['title'] ); ?>
     </h2>
 
-    <div class="wp-block-wp-land-lite-header_description">
+    <div class="wp-block-wp-bot-lite-header_description">
         <?php echo wp_kses_post( $attributes['description'] ); ?>
     </div>
 </div>

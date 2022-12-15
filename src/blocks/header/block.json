@@ -1,17 +1,17 @@
 {
 	"$schema": "https://json.schemastore.org/block.json",
 	"apiVersion": 2,
-	"title": "Land Lite Header",
+	"title": "Bot Lite Header",
 	"name": "wrc/header",
 	"category": "formatting",
 	"attributes": {
 		"title": {
 			"type": "string",
-			"default": "WP Land Lite Text Header"
+			"default": "WP Bot Lite Text Header"
 		},
 		"description": {
 			"type": "string",
-			"default": "WP Land Lite Description"
+			"default": "WP Bot Lite Description"
 		},
 		"bgColor": {
 			"type": "string",
@@ -29,8 +29,8 @@
 	},
 	"example": {
 		"attributes": {
-			"title": "WP Land Lite Text Header",
-			"description": "WP Land Lite Description",
+			"title": "WP Bot Lite Text Header",
+			"description": "WP Bot Lite Description",
 			"bgColor": "#f5f5f5",
 			"padding": {
 				"top": "10px",

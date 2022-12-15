@@ -1,6 +1,6 @@
 <?php
 
-namespace Dearvn\LandLite\Traits;
+namespace Dearvn\BotLite\Traits;
 
 /**
  * Queryable trait.

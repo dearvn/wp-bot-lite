@@ -1,6 +1,6 @@
 <?php
 
-namespace Dearvn\LandLite\REST;
+namespace Dearvn\BotLite\REST;
 
 /**
  * API Manager class.
@@ -29,11 +29,11 @@ class Api {
         }
 
         $this->class_map = apply_filters(
-            'landlite_rest_api_class_map',
+            'botlite_rest_api_class_map',
             [
-                \Dearvn\LandLite\REST\ProductTypesController::class,
-                \Dearvn\LandLite\REST\ProductsController::class,
-                \Dearvn\LandLite\REST\CitiesController::class,
+                \Dearvn\BotLite\REST\AlertTypesController::class,
+                \Dearvn\BotLite\REST\AlertsController::class,
+                \Dearvn\BotLite\REST\CitiesController::class,
             ]
         );
 

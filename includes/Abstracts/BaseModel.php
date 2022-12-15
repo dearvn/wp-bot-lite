@@ -1,9 +1,9 @@
 <?php
 
-namespace Dearvn\LandLite\Abstracts;
+namespace Dearvn\BotLite\Abstracts;
 
-use Dearvn\LandLite\Traits\InputSanitizer;
-use Dearvn\LandLite\Traits\Queryable;
+use Dearvn\BotLite\Traits\InputSanitizer;
+use Dearvn\BotLite\Traits\Queryable;
 
 /**
  * Base model class.

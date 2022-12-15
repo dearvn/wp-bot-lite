@@ -1,6 +1,6 @@
 <?php
 
-namespace Dearvn\LandLite\Tests;
+namespace Dearvn\BotLite\Tests;
 
 class RunnerTest extends \WP_UnitTestCase {
 

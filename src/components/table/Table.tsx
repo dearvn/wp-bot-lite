@@ -26,7 +26,7 @@ export const defaultTableProps = {
     checkedAll: false,
     onChangePage: () => {},
     onCheckAll: () => {},
-    noDataMessage: __('Sorry ! No data found.', 'landlite'),
+    noDataMessage: __('Sorry ! No data found.', 'botlite'),
 };
 
 /**

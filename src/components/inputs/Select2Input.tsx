@@ -126,7 +126,7 @@ const Select2Input = (props: ISelect2Input) => {
                     : getSelectedOption(options, defaultValue)
             }
             placeholder={
-                placeholder ? placeholder : __('-- Select --', 'landlite')
+                placeholder ? placeholder : __('-- Select --', 'botlite')
             }
             onChange={(value) => {
                 if (typeof onChange === 'function') {

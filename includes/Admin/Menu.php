@@ -1,6 +1,6 @@
 <?php
 
-namespace Dearvn\LandLite\Admin;
+namespace Dearvn\BotLite\Admin;
 
 /**
  * Admin Menu class.
@@ -28,16 +28,16 @@ class Menu {
     public function init_menu() {
         global $submenu;
 
-        $slug          = LAND_LITE_SLUG;
+        $slug          = BOT_LITE_SLUG;
         $menu_position = 50;
         $capability    = 'manage_options';
-        $logo_icon     = LAND_LITE_ASSETS . '/images/wp-land-lite-logo.png';
+        $logo_icon     = BOT_LITE_ASSETS . '/images/wp-bot-lite-logo.png';
 
-        add_menu_page( esc_attr__( 'WP Land Lite', 'landlite' ), esc_attr__( 'WP Land Lite', 'landlite' ), $capability, $slug, [ $this, 'plugin_page' ], $logo_icon, $menu_position );
+        add_menu_page( esc_attr__( 'WP Bot Lite', 'botlite' ), esc_attr__( 'WP Bot Lite', 'botlite' ), $capability, $slug, [ $this, 'plugin_page' ], $logo_icon, $menu_position );
 
         if ( current_user_can( $capability ) ) {
-            $submenu[ $slug ][] = [ esc_attr__( 'Home', 'landlite' ), $capability, 'admin.php?page=' . $slug . '#/' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-            $submenu[ $slug ][] = [ esc_attr__( 'Products', 'landlite' ), $capability, 'admin.php?page=' . $slug . '#/products' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+            $submenu[ $slug ][] = [ esc_attr__( 'Home', 'botlite' ), $capability, 'admin.php?page=' . $slug . '#/' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+            $submenu[ $slug ][] = [ esc_attr__( 'Alerts', 'botlite' ), $capability, 'admin.php?page=' . $slug . '#/alerts' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
         }
     }
 
@@ -49,6 +49,6 @@ class Menu {
      * @return void
      */
     public function plugin_page() {
-        require_once LAND_LITE_TEMPLATE_PATH . '/app.php';
+        require_once BOT_LITE_TEMPLATE_PATH . '/app.php';
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Dearvn\LandLite\REST;
+namespace Dearvn\BotLite\REST;
 
-use Dearvn\LandLite\Abstracts\RESTController;
+use Dearvn\BotLite\Abstracts\RESTController;
 use WP_User_Query;
 use WP_REST_Response;
 use WP_REST_Server;
@@ -20,7 +20,7 @@ class CitiesController extends RESTController {
      *
      * @var string
      */
-    protected $namespace = 'product-real-estate/v1';
+    protected $namespace = 'alert-real-estate/v1';
 
     /**
      * Route base.

@@ -5,7 +5,7 @@ Details about the REST API documentation of the plugin.
 ---
 
 #### City dropdown list API
-**URL** - http://localhost/wpex/wp-json/product-real-estate/v1/cities/dropdown
+**URL** - http://localhost/wpex/wp-json/alert-real-estate/v1/cities/dropdown
 **Method** - GET
 **Response** -
 ```json
@@ -25,8 +25,8 @@ Details about the REST API documentation of the plugin.
 ]
 ```
 
-#### Product Type List API
-**URL** - http://localhost/wpex/wp-json/product-real-estate/v1/product-types
+#### Alert Type List API
+**URL** - http://localhost/wpex/wp-json/alert-real-estate/v1/alert-types
 **Method** - GET
 **Response** -
 ```json
@@ -35,18 +35,18 @@ Details about the REST API documentation of the plugin.
         "id": 1,
         "name": "Full time",
         "slug": "full-time",
-        "description": "Full time product",
+        "description": "Full time alert",
         "created_at": "2022-07-31 12:36:20",
         "updated_at": "2022-07-31 12:36:20",
         "_links": {
             "self": [
                 {
-                    "href": "http://localhost/wpex/wp-json/product-real-estate/v1/product-types/1"
+                    "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alert-types/1"
                 }
             ],
             "collection": [
                 {
-                    "href": "http://localhost/wpex/wp-json/product-real-estate/v1/product-types"
+                    "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alert-types"
                 }
             ]
         }
@@ -55,18 +55,18 @@ Details about the REST API documentation of the plugin.
         "id": 2,
         "name": "Part time",
         "slug": "part-time",
-        "description": "Part time product",
+        "description": "Part time alert",
         "created_at": "2022-07-31 12:36:20",
         "updated_at": "2022-07-31 12:36:20",
         "_links": {
             "self": [
                 {
-                    "href": "http://localhost/wpex/wp-json/product-real-estate/v1/product-types/2"
+                    "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alert-types/2"
                 }
             ],
             "collection": [
                 {
-                    "href": "http://localhost/wpex/wp-json/product-real-estate/v1/product-types"
+                    "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alert-types"
                 }
             ]
         }
@@ -75,18 +75,18 @@ Details about the REST API documentation of the plugin.
         "id": 3,
         "name": "Remote",
         "slug": "remote",
-        "description": "Remote product",
+        "description": "Remote alert",
         "created_at": "2022-07-31 12:36:20",
         "updated_at": "2022-07-31 12:36:20",
         "_links": {
             "self": [
                 {
-                    "href": "http://localhost/wpex/wp-json/product-real-estate/v1/product-types/3"
+                    "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alert-types/3"
                 }
             ],
             "collection": [
                 {
-                    "href": "http://localhost/wpex/wp-json/product-real-estate/v1/product-types"
+                    "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alert-types"
                 }
             ]
         }
@@ -95,8 +95,8 @@ Details about the REST API documentation of the plugin.
 ```
 
 
-#### Product Lists API
-**URL** - http://localhost/wpex/wp-json/product-real-estate/v1/products
+#### Alert Lists API
+**URL** - http://localhost/wpex/wp-json/alert-real-estate/v1/alerts
 **Method** - `GET`
 **Middleware** - WordPress user logged in.
 **Parameters** -
@@ -108,16 +108,16 @@ orderby=id
 order=asc
 ```
 **Full Endpoint** with all of the supported params -
-http://localhost/wpex/wp-json/product-real-estate/v1/products?page=1&per_page=10&search=first
+http://localhost/wpex/wp-json/alert-real-estate/v1/alerts?page=1&per_page=10&search=first
 
 **API Response**
 ```json
 [
     {
         "id": 1,
-        "title": "First Product",
-        "slug": "first-product",
-        "product_type": {
+        "title": "First Alert",
+        "slug": "first-alert",
+        "alert_type": {
             "id": "1",
             "name": "Full time",
             "slug": "full-time"
@@ -134,12 +134,12 @@ http://localhost/wpex/wp-json/product-real-estate/v1/products?page=1&per_page=10
         "_links": {
             "self": [
                 {
-                    "href": "http://localhost/wpex/wp-json/product-real-estate/v1/products/1"
+                    "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alerts/1"
                 }
             ],
             "collection": [
                 {
-                    "href": "http://localhost/wpex/wp-json/product-real-estate/v1/products"
+                    "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alerts"
                 }
             ]
         }
@@ -147,17 +147,17 @@ http://localhost/wpex/wp-json/product-real-estate/v1/products?page=1&per_page=10
 ]
 ```
 
-#### Product Detail API
-**URL** - http://localhost/wpex/wp-json/product-real-estate/v1/products/2
+#### Alert Detail API
+**URL** - http://localhost/wpex/wp-json/alert-real-estate/v1/alerts/2
 **Method** - `GET`
 **Middleware** - WordPress user logged in.
 **Response** -
 ```json
 {
     "id": 2,
-    "title": "Second Product",
-    "slug": "second-product",
-    "product_type": {
+    "title": "Second Alert",
+    "slug": "second-alert",
+    "alert_type": {
         "id": "2",
         "name": "Part time",
         "slug": "part-time"
@@ -174,41 +174,41 @@ http://localhost/wpex/wp-json/product-real-estate/v1/products?page=1&per_page=10
     "_links": {
         "self": [
             {
-                "href": "http://localhost/wpex/wp-json/product-real-estate/v1/products/2"
+                "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alerts/2"
             }
         ],
         "collection": [
             {
-                "href": "http://localhost/wpex/wp-json/product-real-estate/v1/products"
+                "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alerts"
             }
         ]
     }
 }
 ```
 
-**Response when product not found** -
+**Response when alert not found** -
 ```json
 {
-    "code": "land_lite_rest_product_not_found",
-    "message": "Product not found. May be product has been deleted.",
+    "code": "bot_lite_rest_alert_not_found",
+    "message": "Alert not found. May be alert has been deleted.",
     "data": {
         "status": 404
     }
 }
 ```
 
-#### Product Create API
-**URL** - http://localhost/wpex/wp-json/product-real-estate/v1/products
+#### Alert Create API
+**URL** - http://localhost/wpex/wp-json/alert-real-estate/v1/alerts
 **Method** - `POST`
 **Middleware** - WordPress user logged in.
 **Body** -
 ```json
 {
-    "title": "Simple Product Post Awesome",
-    "slug": "simple-product-post-awesome",
-    "description": "Simple product post description",
+    "title": "Simple Alert Post Awesome",
+    "slug": "simple-alert-post-awesome",
+    "description": "Simple alert post description",
     "city_id": 1,
-    "product_type_id": 2,
+    "alert_type_id": 2,
     "is_active": 1
 }
 ```
@@ -216,9 +216,9 @@ http://localhost/wpex/wp-json/product-real-estate/v1/products?page=1&per_page=10
 ```json
 {
     "id": 49,
-    "title": "Simple Product Post Awesome",
-    "slug": "simple-product-post-awesome",
-    "product_type": {
+    "title": "Simple Alert Post Awesome",
+    "slug": "simple-alert-post-awesome",
+    "alert_type": {
         "id": "2",
         "name": "Part time",
         "slug": "part-time"
@@ -229,35 +229,35 @@ http://localhost/wpex/wp-json/product-real-estate/v1/products?page=1&per_page=10
         "name": "admin",
         "avatar_url": "http://1.gravatar.com/avatar/1c82531094a13dc2b339ab5decf5c446?s=96&d=mm&r=g"
     },
-    "description": "Simple product post description",
+    "description": "Simple alert post description",
     "created_at": "2022-08-10 21:34:28",
     "updated_at": "2022-08-10 21:34:28",
     "_links": {
         "self": [
             {
-                "href": "http://localhost/wpex/wp-json/product-real-estate/v1/products/49"
+                "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alerts/49"
             }
         ],
         "collection": [
             {
-                "href": "http://localhost/wpex/wp-json/product-real-estate/v1/products"
+                "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alerts"
             }
         ]
     }
 }
 ```
-#### Product Update API
-**URL** - http://localhost/wpex/wp-json/product-real-estate/v1/products/2
+#### Alert Update API
+**URL** - http://localhost/wpex/wp-json/alert-real-estate/v1/alerts/2
 **Method** - `PUT`
 **Middleware** - WordPress user logged in.
 **Body** -
 ```json
 {
-    "title": "Simple Product Post Awesome Updated",
-    "slug": "simple-product-post-awesome-updated",
-    "description": "Simple product post description",
+    "title": "Simple Alert Post Awesome Updated",
+    "slug": "simple-alert-post-awesome-updated",
+    "description": "Simple alert post description",
     "city_id": 1,
-    "product_type_id": 2,
+    "alert_type_id": 2,
     "is_active": 1
 }
 ```
@@ -266,9 +266,9 @@ http://localhost/wpex/wp-json/product-real-estate/v1/products?page=1&per_page=10
 ```json
 {
     "id": 49,
-    "title": "Simple Product Post Awesome Updated",
-    "slug": "simple-product-post-awesome-updated",
-    "product_type": {
+    "title": "Simple Alert Post Awesome Updated",
+    "slug": "simple-alert-post-awesome-updated",
+    "alert_type": {
         "id": "2",
         "name": "Part time",
         "slug": "part-time"
@@ -279,18 +279,18 @@ http://localhost/wpex/wp-json/product-real-estate/v1/products?page=1&per_page=10
         "name": "admin",
         "avatar_url": "http://1.gravatar.com/avatar/1c82531094a13dc2b339ab5decf5c446?s=96&d=mm&r=g"
     },
-    "description": "Simple product post description",
+    "description": "Simple alert post description",
     "created_at": "2022-08-10 21:36:09",
     "updated_at": "2022-08-10 21:36:09",
     "_links": {
         "self": [
             {
-                "href": "http://localhost/wpex/wp-json/product-real-estate/v1/products/49"
+                "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alerts/49"
             }
         ],
         "collection": [
             {
-                "href": "http://localhost/wpex/wp-json/product-real-estate/v1/products"
+                "href": "http://localhost/wpex/wp-json/alert-real-estate/v1/alerts"
             }
         ]
     }
@@ -298,8 +298,8 @@ http://localhost/wpex/wp-json/product-real-estate/v1/products?page=1&per_page=10
 ```
 
 
-#### Products Delete API
-**URL** - http://localhost/wpex/wp-json/product-real-estate/v1/products
+#### Alerts Delete API
+**URL** - http://localhost/wpex/wp-json/alert-real-estate/v1/alerts
 **Method** - `DELETE`
 **Middleware** - WordPress user logged in.
 **Body** -
@@ -312,7 +312,7 @@ http://localhost/wpex/wp-json/product-real-estate/v1/products?page=1&per_page=10
 **Response**
 ```json
 {
-    "message": "Products deleted successfully.",
+    "message": "Alerts deleted successfully.",
     "total": 1
 }
 ```

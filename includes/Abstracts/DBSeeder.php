@@ -1,6 +1,6 @@
 <?php
 
-namespace Dearvn\LandLite\Abstracts;
+namespace Dearvn\BotLite\Abstracts;
 
 /**
  * Abstract class to handle the seeder classes.

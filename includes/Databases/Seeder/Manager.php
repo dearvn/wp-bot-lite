@@ -1,6 +1,6 @@
 <?php
 
-namespace Dearvn\LandLite\Databases\Seeder;
+namespace Dearvn\BotLite\Databases\Seeder;
 
 /**
  * Database Seeder class.
@@ -19,8 +19,8 @@ class Manager {
      */
     public function run() {
         $seeder_classes = [
-            \Dearvn\LandLite\Databases\Seeder\ProductTypeSeeder::class,
-            \Dearvn\LandLite\Databases\Seeder\ProductsSeeder::class,
+            \Dearvn\BotLite\Databases\Seeder\AlertTypeSeeder::class,
+            \Dearvn\BotLite\Databases\Seeder\AlertsSeeder::class,
         ];
 
         foreach ( $seeder_classes as $seeder_class ) {

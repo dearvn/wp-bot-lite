@@ -1,6 +1,6 @@
 <?php
 
-namespace Dearvn\LandLite\Tests\Api;
+namespace Dearvn\BotLite\Tests\Api;
 
 class CityRestApiTest extends \WP_UnitTestCase {
 
@@ -16,7 +16,7 @@ class CityRestApiTest extends \WP_UnitTestCase {
      *
      * @var string
      */
-    protected $namespace = 'product-real-estate/v1';
+    protected $namespace = 'alert-real-estate/v1';
 
     /**
      * Route base.

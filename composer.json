@@ -1,6 +1,6 @@
 {
-    "name": "dearvn/landlite",
-    "description": "A Product posting platform made by WordPress",
+    "name": "dearvn/botlite",
+    "description": "A Alert posting platform made by WordPress",
     "type": "wordpress-plugin",
     "license": "GPL-2.0-or-later",
     "authors": [
@@ -28,8 +28,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Dearvn\\LandLite\\": "includes/",
-            "Dearvn\\LandLite\\Tests\\": "tests/phpunit/"
+            "Dearvn\\BotLite\\": "includes/",
+            "Dearvn\\BotLite\\Tests\\": "tests/phpunit/"
         }
     },
     "scripts": {

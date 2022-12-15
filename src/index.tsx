@@ -14,8 +14,8 @@ import './style/tailwind.css';
 import './style/main.scss';
 
 // Render the App component into the DOM
-const productPlaceElement = document.getElementById('landlite');
+const alertPlaceElement = document.getElementById('botlite');
 
-if (productPlaceElement) {
-    render(<App />, productPlaceElement);
+if (alertPlaceElement) {
+    render(<App />, alertPlaceElement);
 }

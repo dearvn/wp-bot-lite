@@ -1,4 +1,4 @@
-export const wpReactKitSlug = 'landlite';
+export const wpReactKitSlug = 'botlite';
 
 /**
  * As we are using hash based navigation, hack fix

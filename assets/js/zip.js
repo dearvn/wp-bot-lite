@@ -14,7 +14,7 @@ const pluginFiles = [
     'languages/',
     'templates/',
     'changelog.txt',
-    'product-real-estate.php',
+    'alert-real-estate.php',
 ];
 
 const removeFiles = [
@@ -25,7 +25,7 @@ const removeFiles = [
 ];
 
 const dest = `dist/`;
-const zipFile = `wp-land-lite.zip`;
+const zipFile = `wp-bot-lite.zip`;
 const allowedVendorFiles = {};
 fs.removeSync(`${dest}${zipFile}`);
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dearvn\LandLite\Assets;
+namespace Dearvn\BotLite\Assets;
 
 /**
  * Asset Manager class.
@@ -43,9 +43,9 @@ class Manager {
      */
     public function get_styles(): array {
         return [
-            'product-real-estate-css' => [
-                'src'     => LAND_LITE_BUILD . '/index.css',
-                'version' => LAND_LITE_VERSION,
+            'alert-real-estate-css' => [
+                'src'     => BOT_LITE_BUILD . '/index.css',
+                'version' => BOT_LITE_VERSION,
                 'deps'    => [],
             ],
         ];
@@ -59,12 +59,12 @@ class Manager {
      * @return array
      */
     public function get_scripts(): array {
-        $dependency = require_once LAND_LITE_DIR . '/build/index.asset.php';
+        $dependency = require_once BOT_LITE_DIR . '/build/index.asset.php';
 
         return [
-            'product-real-estate-app' => [
-                'src'       => LAND_LITE_BUILD . '/index.js',
-                'version'   => filemtime( LAND_LITE_DIR . '/build/index.js' ),
+            'alert-real-estate-app' => [
+                'src'       => BOT_LITE_BUILD . '/index.js',
+                'version'   => filemtime( BOT_LITE_DIR . '/build/index.js' ),
                 'deps'      => $dependency['dependencies'],
                 'in_footer' => true,
             ],
@@ -101,18 +101,18 @@ class Manager {
      * Enqueue admin styles and scripts.
      *
      * @since 0.2.0
-     * @since 0.3.0 Loads the JS and CSS only on the Product Place admin page.
+     * @since 0.3.0 Loads the JS and CSS only on the Alert Place admin page.
      *
      * @return void
      */
     public function enqueue_admin_assets() {
-        // Check if we are on the admin page and page=landlite.
-        if ( ! is_admin() || ! isset( $_GET['page'] ) || sanitize_text_field( wp_unslash( $_GET['page'] ) ) !== 'landlite' ) {
+        // Check if we are on the admin page and page=botlite.
+        if ( ! is_admin() || ! isset( $_GET['page'] ) || sanitize_text_field( wp_unslash( $_GET['page'] ) ) !== 'botlite' ) {
             return;
         }
 
-        wp_enqueue_style( 'product-real-estate-css' );
-        wp_enqueue_script( 'product-real-estate-app' );
+        wp_enqueue_style( 'alert-real-estate-css' );
+        wp_enqueue_script( 'alert-real-estate-app' );
     }
 
     /**
@@ -128,7 +128,7 @@ class Manager {
         ];
 
         foreach( $blocks as $block ) {
-            $block_folder = LAND_LITE_PATH . '/build/blocks' . '/' . $block;
+            $block_folder = BOT_LITE_PATH . '/build/blocks' . '/' . $block;
             $block_options = [];
 
             $markup_file_path = $block_folder . '/markup.php';

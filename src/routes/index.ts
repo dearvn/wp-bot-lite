@@ -2,9 +2,9 @@
  * Internal dependencies
  */
 import HomePage from '../pages/HomePage';
-import ProductsPage from '../pages/products/ProductsPage';
-import CreateProduct from '../pages/products/CreateProduct';
-import EditProduct from '../pages/products/EditProduct';
+import AlertsPage from '../pages/alerts/AlertsPage';
+import CreateAlert from '../pages/alerts/CreateAlert';
+import EditAlert from '../pages/alerts/EditAlert';
 
 const routes = [
     {
@@ -12,16 +12,16 @@ const routes = [
         element: HomePage,
     },
     {
-        path: '/products',
-        element: ProductsPage,
+        path: '/alerts',
+        element: AlertsPage,
     },
     {
-        path: '/products/new',
-        element: CreateProduct,
+        path: '/alerts/new',
+        element: CreateAlert,
     },
     {
-        path: '/products/edit/:id',
-        element: EditProduct,
+        path: '/alerts/edit/:id',
+        element: EditAlert,
     },
 ];
 

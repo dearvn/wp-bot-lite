@@ -1,8 +1,8 @@
 <?php
 
-namespace Dearvn\LandLite\Setup;
+namespace Dearvn\BotLite\Setup;
 
-use Dearvn\LandLite\Common\Keys;
+use Dearvn\BotLite\Common\Keys;
 
 /**
  * Class Installer.
@@ -30,7 +30,7 @@ class Installer {
         $this->make_admin_as_city();
 
         // Run the database seeders.
-        $seeder = new \Dearvn\LandLite\Databases\Seeder\Manager();
+        $seeder = new \Dearvn\BotLite\Databases\Seeder\Manager();
         $seeder->run();
     }
 
@@ -56,8 +56,8 @@ class Installer {
         global $wpdb;
 
         // Register the tables to wpdb global.
-        $wpdb->landlite_product_types = $wpdb->prefix . 'landlite_product_types';
-        $wpdb->landlite_products      = $wpdb->prefix . 'landlite_products';
+        $wpdb->botlite_alert_types = $wpdb->prefix . 'botlite_alert_types';
+        $wpdb->botlite_alerts      = $wpdb->prefix . 'botlite_alerts';
     }
 
     /**
@@ -69,19 +69,19 @@ class Installer {
      * @return void
      */
     public function add_version(): void {
-        $installed = get_option( Keys::LAND_LITE_INSTALLED );
+        $installed = get_option( Keys::BOT_LITE_INSTALLED );
 
         if ( ! $installed ) {
-            update_option( Keys::LAND_LITE_INSTALLED, time() );
+            update_option( Keys::BOT_LITE_INSTALLED, time() );
         }
 
-        update_option( Keys::LAND_LITE_VERSION, LAND_LITE_VERSION );
+        update_option( Keys::BOT_LITE_VERSION, BOT_LITE_VERSION );
     }
 
     /**
      * Create necessary database tables.
      *
-     * @since LAND_LITE_
+     * @since BOT_LITE_
      *
      * @return void
      */
@@ -91,7 +91,7 @@ class Installer {
         }
 
         // Run the database table migrations.
-        \Dearvn\LandLite\Databases\Migrations\ProductTypeMigration::migrate();
-        \Dearvn\LandLite\Databases\Migrations\ProductsMigration::migrate();
+        \Dearvn\BotLite\Databases\Migrations\AlertTypeMigration::migrate();
+        \Dearvn\BotLite\Databases\Migrations\AlertsMigration::migrate();
     }
 }

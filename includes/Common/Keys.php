@@ -1,6 +1,6 @@
 <?php
 
-namespace Dearvn\LandLite\Common;
+namespace Dearvn\BotLite\Common;
 
 /**
  * Manage all key strings.
@@ -10,38 +10,38 @@ namespace Dearvn\LandLite\Common;
 class Keys {
 
     /**
-     * Product place installed option key.
+     * Alert place installed option key.
      *
      * @var string
      *
      * @since 0.3.0
      */
-    const LAND_LITE_INSTALLED = 'landlite_installed';
+    const BOT_LITE_INSTALLED = 'botlite_installed';
 
     /**
-     * Product place version key.
+     * Alert place version key.
      *
      * @var string
      *
      * @since 0.3.0
      */
-    const LAND_LITE_VERSION = 'landlite_version';
+    const BOT_LITE_VERSION = 'botlite_version';
 
     /**
-     * Product type seeder ran key.
+     * Alert type seeder ran key.
      *
      * @var string
      *
      * @since 0.5.0
      */
-    const PRODUCT_TYPE_SEEDER_RAN = 'landlite_product_type_seeder_ran';
+    const ALERT_TYPE_SEEDER_RAN = 'botlite_alert_type_seeder_ran';
 
     /**
-     * Product seeder ran key.
+     * Alert seeder ran key.
      *
      * @var string
      *
      * @since 0.3.0
      */
-    const PRODUCT_SEEDER_RAN = 'landlite_product_seeder_ran';
+    const ALERT_SEEDER_RAN = 'botlite_alert_seeder_ran';
 }

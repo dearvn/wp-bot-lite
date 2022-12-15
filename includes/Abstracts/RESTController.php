@@ -1,6 +1,6 @@
 <?php
 
-namespace Dearvn\LandLite\Abstracts;
+namespace Dearvn\BotLite\Abstracts;
 
 use WP_REST_Controller;
 
@@ -16,7 +16,7 @@ abstract class RESTController extends WP_REST_Controller {
      *
      * @var string
      */
-    protected $namespace = 'product-real-estate/v1';
+    protected $namespace = 'alert-real-estate/v1';
 
     /**
      * Check default permission for rest routes.
@@ -30,7 +30,7 @@ abstract class RESTController extends WP_REST_Controller {
     public function check_permission(): bool {
         return true;
         // phpcs:disable Squiz.PHP.CommentedOutCode.Found
-        // return current_user_can( 'manage_products' );
+        // return current_user_can( 'manage_alerts' );
         //phpcs:enable
     }
 

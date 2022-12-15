@@ -15,10 +15,10 @@ const Dashboard = () => {
         <div className="dashboard mx-8">
             <div className="card p-5">
                 <h3 className="font-medium text-lg">
-                    {__('Dashboard', 'landlite')}
+                    {__('Dashboard', 'botlite')}
                 </h3>
                 <p>
-                    {__('Edit Dashboard component at ', 'landlite')}
+                    {__('Edit Dashboard component at ', 'botlite')}
                     <code>src/components/Dashboard.jsx</code>
                 </p>
 
@@ -26,8 +26,8 @@ const Dashboard = () => {
                     <Button
                         type="primary"
                         style={{ backgroundColor: '#00a0d2' }}
-                        text={__('View Products', 'landlite')}
-                        onClick={() => navigate('/products')}
+                        text={__('View Alerts', 'botlite')}
+                        onClick={() => navigate('/alerts')}
                     />
                 </div>
             </div>

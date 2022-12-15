@@ -14,5 +14,5 @@ export interface IResponseGenerator {
     statusText?: string;
 }
 
-// Product types
-export * from './products';
+// Alert types
+export * from './alerts';

@@ -13,9 +13,9 @@ const SelectedItem: React.FC<ISelectedItem> = ({ checked }) => {
             <b className="mr-2">{checked.length}</b>
             <span className="mr-2">
                 {checked.length > 1
-                    ? __('items', 'landlite')
-                    : __('item', 'landlite')}{' '}
-                {__('selected', 'landlite')}
+                    ? __('items', 'botlite')
+                    : __('item', 'botlite')}{' '}
+                {__('selected', 'botlite')}
             </span>
         </span>
     );

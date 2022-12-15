@@ -33,8 +33,8 @@ const SelectListItem = (props: ISelectListItem) => {
                 className="mr-3 !border-gray-liter !bg-gray-liter py-2 mt-[-3px] focus:shadow-none focus:outline-none"
                 onChange={(e) => setAction(e.target.value)}
             >
-                <option value="">{__('Select Action', 'landlite')}</option>
-                <option value="delete">{__('Delete', 'landlite')}</option>
+                <option value="">{__('Select Action', 'botlite')}</option>
+                <option value="delete">{__('Delete', 'botlite')}</option>
             </select>
             <button
                 disabled={action === '' || applyActionLoading}
@@ -42,8 +42,8 @@ const SelectListItem = (props: ISelectListItem) => {
                 className="bg-gray-liter border-0 py-1.5 px-4 rounded"
             >
                 {applyActionLoading
-                    ? __('Applying…', 'landlite')
-                    : __('Apply', 'landlite')}
+                    ? __('Applying…', 'botlite')
+                    : __('Apply', 'botlite')}
             </button>
         </span>
     );

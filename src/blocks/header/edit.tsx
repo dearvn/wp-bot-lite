@@ -29,24 +29,24 @@ export default function Edit({ attributes, setAttributes }) {
         }}
     >
       <RichText
-        className="wp-block-wp-land-lite-header_title"
+        className="wp-block-wp-bot-lite-header_title"
         tagName="h2"
-        placeholder={__("Header title", "landlite")}
+        placeholder={__("Header title", "botlite")}
         value={title}
         onChange={(title: string) => setAttributes({ title })}
       />
 
       <RichText
-        className="wp-block-wp-land-lite-header_title"
+        className="wp-block-wp-bot-lite-header_title"
         tagName="div"
-        placeholder={__("Header description", "landlite")}
+        placeholder={__("Header description", "botlite")}
         value={description}
         onChange={(description: string) => setAttributes({ description })}
       />
 
         <InspectorControls>
             <PanelBody
-                title={__('Color Settings', 'landlite')}
+                title={__('Color Settings', 'botlite')}
                 initialOpen={true}
             >
                 <ColorPicker

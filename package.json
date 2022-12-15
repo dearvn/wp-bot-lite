@@ -1,5 +1,5 @@
 {
-  "name": "landlite",
+  "name": "botlite",
   "version": "0.0.1",
   "description": "A Job posting platform made by WordPress and best architectures",
   "main": "src/index.tsx",
@@ -14,7 +14,7 @@
     "env:start": "wp-env start",
     "env:start:coverage": "wp-env start -- --xdebug=profile,trace,debug",
     "env:stop": "wp-env stop",
-    "makepot": "wp i18n make-pot --domain='landlite' --exclude='node_modules,.storybook,src,vendor,assets' . --headers='{\"Last-Translator\":\"donald.nguyen.it@gmail.com\",\"Report-Msgid-Bugs-To\":\"https://github.com/dearvn/wp-land-lite/issues\"}' --file-comment=\"Copyright (c) $(date +'%Y') Dearvn. All Rights Reserved.\" languages/landlite.pot",
+    "makepot": "wp i18n make-pot --domain='botlite' --exclude='node_modules,.storybook,src,vendor,assets' . --headers='{\"Last-Translator\":\"donald.nguyen.it@gmail.com\",\"Report-Msgid-Bugs-To\":\"https://github.com/dearvn/wp-bot-lite/issues\"}' --file-comment=\"Copyright (c) $(date +'%Y') Dearvn. All Rights Reserved.\" languages/botlite.pot",
     "zip": "node assets/js/zip",
     "version": "node assets/js/version-replace",
     "release": "npm run build && npm run makepot && npm run version && npm run zip"
