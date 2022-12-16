@@ -24,8 +24,6 @@ const resolvers = {
             filters as URLSearchParams
         ).toString();
 
-        console.log(">>>>>>>>>>>>>>>>>>>queryParam", queryParam);
-
         const response: IResponseGenerator = yield actions.fetchFromAPIUnparsed(
             `${ordersEndpoint}?${queryParam}`
         );
@@ -46,7 +44,6 @@ const resolvers = {
     *getOrderDetail(id: number) {
         yield actions.setLoadingOrders(true);
         const path = `${ordersEndpoint}/${id}`;
-        console.log(">>>>>>>>>>>>>>>path:", path)
         const response = yield actions.fetchFromAPI(path);
 
         if (response.id) {

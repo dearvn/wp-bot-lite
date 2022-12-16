@@ -14,7 +14,6 @@ const controls = {
     },
 
     FETCH_FROM_API_UNPARSED(action: { path: any }) {
-        console.log(">>>>>>>>>>>>>apiFetch");
         return apiFetch({ path: action.path, parse: false }).then(
             (response: { headers: object; json: any }) =>
                 Promise.all([response.headers, response.json()]).then(

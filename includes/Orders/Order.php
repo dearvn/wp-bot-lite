@@ -73,6 +73,12 @@ class Order extends BaseModel {
      * @return array
      */
     public static function to_array( ?object $order ): array {
+        $gain_loss = 0;
+        if ($order->type == 'long') {
+            $gain_loss = $order->entry_price - $order->exit_price;
+        } else if ($order->type == 'short') {
+            $gain_loss = $order->exit_price - $order->entry_price;
+        }
         $data = [
             'id'            => (int) $order->id,
             'name'          => $order->name,
@@ -85,9 +91,10 @@ class Order extends BaseModel {
             'logic' => $order->logic,
             'contracts' => $order->contracts,
             'entry_price' => $order->entry_price,
-            'entry_at' => date('m/d/Y H:i', strtotime($order->entry_at)),
+            'entry_at' => $order->entry_at ? date('m/d/Y H:i', strtotime($order->entry_at)) : '',
             'exit_price'         => $order->exit_price,
             'exit_at'  => $order->exit_at ? date('m/d/Y H:i', strtotime($order->exit_at)) : '',
+            'gain_loss' => $gain_loss
         ];
 
         return $data;

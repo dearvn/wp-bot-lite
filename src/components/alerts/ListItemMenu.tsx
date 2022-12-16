@@ -128,7 +128,7 @@ export default function ListItemMenu({ alert }: IAlert) {
                                 </span>
                             </button>
                         </Menu.Item>
-                        <Menu.Item>
+                        {/*<Menu.Item>
                             <button
                                 onClick={changeAlertStatus}
                                 className="text-left hover:opacity-80 block text-slate-600 hover:text-slate-700 group items-center w-full px-3 text-sm bg-white outline-none hover:outline-none focus:outline-none focus:shadow-none mb-2"
@@ -153,7 +153,7 @@ export default function ListItemMenu({ alert }: IAlert) {
                                     )}
                                 </span>
                             </button>
-                        </Menu.Item>
+                                    </Menu.Item>*/}
                     </div>
                 </Menu.Items>
             </Transition>

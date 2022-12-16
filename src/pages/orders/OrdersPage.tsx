@@ -74,7 +74,7 @@ export default function OrdersPage() {
     ) => {
         const pageData = pagePassed === 0 ? page : pagePassed;
         const searchData = searchPassed === '' ? search : searchPassed;
-        
+
         navigate(`/orders?pages=${pageData}&s=${searchData}`);
         setPage(pageData);
 
@@ -120,14 +120,14 @@ export default function OrdersPage() {
             <div className="flex-6 mr-3">
                 <PageHeading text={__('Orders', 'botlite')} />
             </div>
-            <div className="flex-1 text-left">
+            {/*<div className="flex-1 text-left">
                 <Button
                     text={__('New', 'botlite')}
                     type="primary"
                     icon={faPlus}
                     onClick={() => navigate('/orders/new')}
                 />
-            </div>
+            </div>*/}
         </div>
     );
 

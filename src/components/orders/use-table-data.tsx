@@ -7,10 +7,10 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies.
  */
 // import { Input } from '../inputs/Input';
-import Badge from '../badge/Badge';
+//import Badge from '../badge/Badge';
 import ListItemMenu from './ListItemMenu';
 import { ITableHeader, ITableRow } from '../table/TableInterface';
-import { capitalize } from '../../utils/StringHelper';
+//import { capitalize } from '../../utils/StringHelper';
 
 export const useTableHeaderData = (): ITableHeader[] => {
     return [
@@ -35,18 +35,33 @@ export const useTableHeaderData = (): ITableHeader[] => {
             className: '',
         },
         {
-            key: 'exchange',
-            title: __('Exchange', 'botlite'),
+            key: 'interval',
+            title: __('Timframe', 'botlite'),
             className: '',
         },
         {
-            key: 'close',
-            title: __('Close', 'botlite'),
+            key: 'entry_price',
+            title: __('Entry Price', 'botlite'),
             className: '',
         },
         {
-            key: 'created_at',
-            title: __('Created at time', 'botlite'),
+            key: 'entry_at',
+            title: __('Entry at time', 'botlite'),
+            className: '',
+        },
+        {
+            key: 'exit_price',
+            title: __('Exit Price', 'botlite'),
+            className: '',
+        },
+        {
+            key: 'exit_at',
+            title: __('Exit at time', 'botlite'),
+            className: '',
+        },
+        {
+            key: 'gain_loss',
+            title: __('Gain/Loss', 'botlite'),
             className: '',
         },
         {
@@ -94,18 +109,33 @@ export const useTableRowData = (orders = [], checked: number[]): ITableRow[] => 
                     className: '',
                 },
                 {
-                    key: 'exchange',
-                    value: row.exchange,
+                    key: 'interval',
+                    value: row.interval,
                     className: '',
                 },
                 {
-                    key: 'close',
-                    value: row.close,
+                    key: 'entry_price',
+                    value: row.entry_price,
                     className: '',
                 },
                 {
-                    key: 'created_at',
-                    value: row.created_at,
+                    key: 'entry_at',
+                    value: row.entry_at,
+                    className: '',
+                },
+                {
+                    key: 'exit_price',
+                    value: row.exit_price,
+                    className: '',
+                },
+                {
+                    key: 'exit_at',
+                    value: row.exit_at,
+                    className: '',
+                },
+                {
+                    key: 'gain_loss',
+                    value: row.gain_loss,
                     className: '',
                 },
                 {

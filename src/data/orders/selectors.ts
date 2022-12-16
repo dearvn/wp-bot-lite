@@ -7,7 +7,6 @@ import { IOrders } from '../../interfaces';
 const selectors = {
     getOrders(state: IOrders) {
         const { orders } = state;
-        console.log(">>>>>>>>>orders", orders);
         return orders;
     },
 
@@ -43,13 +42,11 @@ const selectors = {
 
     getTotal(state: IOrders) {
         const { total } = state;
-        console.log(">>>>>>>>>total", total);
         return total;
     },
 
     getFilter(state: IOrders) {
         const { filters } = state;
-        console.log(">>>>>>>>>filters", filters);
         return filters;
     },
 

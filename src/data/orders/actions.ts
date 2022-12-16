@@ -58,8 +58,6 @@ const actions = {
             filters as URLSearchParams
         ).toString();
 
-        console.log(">>>>>>>>>>>>>>>>>>>>>>>>queryParam", queryParam);
-
         const path = `${ordersEndpoint}?${queryParam}`;
         const response: {
             headers: Headers;
