@@ -7,7 +7,7 @@
 
 1. Manage Alerts
 
-![Alt text](https://github.com/dearvn/wp-bot-lite/raw/main/alert.png?raw=true "Alerts")
+![Alt text](https://github.com/dearvn/wp-bot-lite/raw/dev/alert.png?raw=true "Alerts")
 
 
 # Technical stack
