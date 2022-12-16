@@ -3,25 +3,25 @@
 namespace Dearvn\BotLite\REST;
 
 use Dearvn\BotLite\Abstracts\RESTController;
-use Dearvn\BotLite\Alerts\Alert;
+use Dearvn\BotLite\Orders\Order;
 use WP_REST_Request;
 use WP_REST_Response;
 use WP_REST_Server;
 use WP_Error;
 
 /**
- * API AlertsController class.
+ * API OrdersController class.
  *
  * @since 0.3.0
  */
-class AlertsController extends RESTController {
+class OrdersController extends RESTController {
 
     /**
      * Route base.
      *
      * @var string
      */
-    protected $base = 'alerts';
+    protected $base = 'orders';
 
     /**
      * Register all routes related with carts.
@@ -80,7 +80,7 @@ class AlertsController extends RESTController {
     }
 
     /**
-     * Retrieves a collection of alert items.
+     * Retrieves a collection of order items.
      *
      * @since 0.3.0
      *
@@ -98,14 +98,14 @@ class AlertsController extends RESTController {
             }
         }
 
-        $alerts = wp_bot_lite()->alerts->all( $args );
-        foreach ( $alerts as $alert ) {
-            $response = $this->prepare_item_for_response( $alert, $request );
+        $orders = wp_bot_lite()->orders->all( $args );
+        foreach ( $orders as $order ) {
+            $response = $this->prepare_item_for_response( $order, $request );
             $data[]   = $this->prepare_response_for_collection( $response );
         }
 
         $args['count'] = 1;
-        $total         = wp_bot_lite()->alerts->all( $args );
+        $total         = wp_bot_lite()->orders->all( $args );
         $max_pages     = ceil( $total / (int) $args['limit'] );
         $response      = rest_ensure_response( $data );
 
@@ -116,7 +116,7 @@ class AlertsController extends RESTController {
     }
 
     /**
-     * Retrieves a collection of alert items.
+     * Retrieves a collection of order items.
      *
      * @since 0.3.0
      *
@@ -136,20 +136,20 @@ class AlertsController extends RESTController {
             ];
         }
 
-        $alert = wp_bot_lite()->alerts->get( $args );
+        $order = wp_bot_lite()->orders->get( $args );
 
-        if ( ! $alert ) {
-            return new WP_Error( 'bot_lite_rest_alert_not_found', __( 'Alert not found. May be alert has been deleted or you don\'t have access to that.', 'botlite' ), [ 'status' => 404 ] );
+        if ( ! $order ) {
+            return new WP_Error( 'bot_lite_rest_order_not_found', __( 'Order not found. May be order has been deleted or you don\'t have access to that.', 'botlite' ), [ 'status' => 404 ] );
         }
 
         // Prepare response.
-        $alert = $this->prepare_item_for_response( $alert, $request );
+        $order = $this->prepare_item_for_response( $order, $request );
 
-        return rest_ensure_response( $alert );
+        return rest_ensure_response( $order );
     }
 
     /**
-     * Create new alert.
+     * Create new order.
      *
      * @since 0.3.0
      *
@@ -172,32 +172,32 @@ class AlertsController extends RESTController {
             return $prepared_data;
         }
 
-        // Insert the alert.
-        $alert_id = wp_bot_lite()->alerts->create( $prepared_data );
+        // Insert the order.
+        $order_id = wp_bot_lite()->orders->create( $prepared_data );
 
-        if ( is_wp_error( $alert_id ) ) {
-            return $alert_id;
+        if ( is_wp_error( $order_id ) ) {
+            return $order_id;
         }
 
-        // Get alert after insert to sending response.
-        $alert = wp_bot_lite()->alerts->get(
+        // Get order after insert to sending response.
+        $order = wp_bot_lite()->orders->get(
             [
 				'key' => 'id',
-				'value' => $alert_id,
+				'value' => $order_id,
 			]
         );
 
-        $response = $this->prepare_item_for_response( $alert, $request );
+        $response = $this->prepare_item_for_response( $order, $request );
         $response = rest_ensure_response( $response );
 
         $response->set_status( 201 );
-        $response->header( 'Location', rest_url( sprintf( '%s/%s/%d', $this->namespace, $this->rest_base, $alert_id ) ) );
+        $response->header( 'Location', rest_url( sprintf( '%s/%s/%d', $this->namespace, $this->rest_base, $order_id ) ) );
 
         return $response;
     }
 
     /**
-     * Update a alert.
+     * Update a order.
      *
      * @since 0.3.0
      *
@@ -209,7 +209,7 @@ class AlertsController extends RESTController {
         if ( empty( $request['id'] ) ) {
             return new WP_Error(
                 'botlite_rest_email_template_exists',
-                __( 'Invalid Alert ID.', 'botlite' ),
+                __( 'Invalid Order ID.', 'botlite' ),
                 array( 'status' => 400 )
             );
         }
@@ -220,33 +220,33 @@ class AlertsController extends RESTController {
             return $prepared_data;
         }
 
-        // Update the alert.
-        $alert_id = absint( $request['id'] );
-        $alert_id = wp_bot_lite()->alerts->update( $prepared_data, $alert_id );
+        // Update the order.
+        $order_id = absint( $request['id'] );
+        $order_id = wp_bot_lite()->orders->update( $prepared_data, $order_id );
 
-        if ( is_wp_error( $alert_id ) ) {
-            return $alert_id;
+        if ( is_wp_error( $order_id ) ) {
+            return $order_id;
         }
 
-        // Get alert after insert to sending response.
-        $alert = wp_bot_lite()->alerts->get(
+        // Get order after insert to sending response.
+        $order = wp_bot_lite()->orders->get(
             [
 				'key' => 'id',
-				'value' => $alert_id,
+				'value' => $order_id,
 			]
         );
 
-        $response = $this->prepare_item_for_response( $alert, $request );
+        $response = $this->prepare_item_for_response( $order, $request );
         $response = rest_ensure_response( $response );
 
         $response->set_status( 201 );
-        $response->header( 'Location', rest_url( sprintf( '%s/%s/%d', $this->namespace, $this->rest_base, $alert_id ) ) );
+        $response->header( 'Location', rest_url( sprintf( '%s/%s/%d', $this->namespace, $this->rest_base, $order_id ) ) );
 
         return $response;
     }
 
     /**
-     * Delete single or multiple alerts.
+     * Delete single or multiple orders.
      *
      * @since 0.3.0
      *
@@ -256,13 +256,13 @@ class AlertsController extends RESTController {
      */
     public function delete_items( $request ) {
         if ( ! isset( $request['ids'] ) ) {
-            return new WP_Error( 'no_ids', __( 'No alert ids found.', 'botlite' ), [ 'status' => 400 ] );
+            return new WP_Error( 'no_ids', __( 'No order ids found.', 'botlite' ), [ 'status' => 400 ] );
         }
 
-        $deleted = wp_bot_lite()->alerts->delete( $request['ids'] );
+        $deleted = wp_bot_lite()->orders->delete( $request['ids'] );
 
         if ( $deleted ) {
-            $message = __( 'Alerts deleted successfully.', 'botlite' );
+            $message = __( 'Orders deleted successfully.', 'botlite' );
 
             return rest_ensure_response(
                 [
@@ -272,7 +272,7 @@ class AlertsController extends RESTController {
             );
         }
 
-        return new WP_Error( 'no_alert_deleted', __( 'No alert deleted. Alert has already been deleted. Please try again.', 'botlite' ), [ 'status' => 400 ] );
+        return new WP_Error( 'no_order_deleted', __( 'No order deleted. Order has already been deleted. Please try again.', 'botlite' ), [ 'status' => 400 ] );
     }
 
     /**
@@ -289,17 +289,17 @@ class AlertsController extends RESTController {
 
         $schema = [
             '$schema'    => 'http://json-schema.org/draft-04/schema#',
-            'title'      => 'alert',
+            'title'      => 'order',
             'type'       => 'object',
             'properties' => [
                 'id'          => array(
-                    'description' => __( 'ID of the alert', 'tradingview_alerts' ),
+                    'description' => __( 'ID of the order', 'tradingview_orders' ),
                     'type'        => 'integer',
                     'context'     => array( 'view', 'edit' ),
                     'readonly'    => true,
                 ),
                 'name'       => array(
-                        'description' => __( 'Alert Name', 'tradingview_alerts' ),
+                        'description' => __( 'Order Name', 'tradingview_orders' ),
                         'type'        => 'string',
                         'context'     => array( 'view', 'edit' ),
                         'required'    => true,
@@ -309,7 +309,7 @@ class AlertsController extends RESTController {
                         ),
                 ),
                 'ticker'       => array(
-                        'description' => __( 'Ticker', 'tradingview_alerts' ),
+                        'description' => __( 'Ticker', 'tradingview_orders' ),
                         'type'        => 'string',
                         'context'     => array( 'view', 'edit' ),
                         'required'    => true,
@@ -319,7 +319,7 @@ class AlertsController extends RESTController {
                         ),
                 ),
                 'type'       => array(
-                    'description' => __( 'Type', 'tradingview_alerts' ),
+                    'description' => __( 'Type', 'tradingview_orders' ),
                     'type'        => 'string',
                     'context'     => array( 'view', 'edit' ),
                     'required'    => true,
@@ -329,7 +329,7 @@ class AlertsController extends RESTController {
                     ),
                 ),
                 'exchange'       => array(
-                        'description' => __( 'Exchange', 'tradingview_alerts' ),
+                        'description' => __( 'Exchange', 'tradingview_orders' ),
                         'type'        => 'string',
                         'context'     => array( 'view', 'edit' ),
                         'required'    => true,
@@ -339,7 +339,7 @@ class AlertsController extends RESTController {
                         ),
                 ),
                 'close'       => array(
-                        'description' => __( 'Close', 'tradingview_alerts' ),
+                        'description' => __( 'Close', 'tradingview_orders' ),
                         'type'        => 'string',
                         'context'     => array( 'view', 'edit' ),
                         'required'    => true,
@@ -349,7 +349,7 @@ class AlertsController extends RESTController {
                         ),
                 ),
                 'created_at'  => array(
-                        'description' => __( 'Created at time', 'tradingview_alerts' ),
+                        'description' => __( 'Created at time', 'tradingview_orders' ),
                         'type'        => 'string',
                         'context'     => array( 'view', 'edit' ),
                         'format'      => 'date-time',
@@ -398,7 +398,7 @@ class AlertsController extends RESTController {
      *
      * @since 0.3.0
      *
-     * @param Alert            $item    WordPress representation of the item
+     * @param Order            $item    WordPress representation of the item
      * @param WP_REST_Request $request request object
      *
      * @return WP_Error|WP_REST_Response
@@ -406,7 +406,7 @@ class AlertsController extends RESTController {
     public function prepare_item_for_response( $item, $request ) {
         $data = [];
 
-        $data = Alert::to_array( $item );
+        $data = Order::to_array( $item );
 
         $data = $this->prepare_response_for_collection( $data );
 
@@ -446,7 +446,7 @@ class AlertsController extends RESTController {
     }
 
     /**
-     * Sanitize alert slug for uniqueness.
+     * Sanitize order slug for uniqueness.
      *
      * @since 0.3.0
      *
@@ -455,7 +455,7 @@ class AlertsController extends RESTController {
      *
      * @return WP_Error|string
      */
-    public function sanitize_alert_slug( $slug, $request ) {
+    public function sanitize_order_slug( $slug, $request ) {
         global $wpdb;
 
         $slug          = sanitize_title( $slug );
@@ -468,11 +468,11 @@ class AlertsController extends RESTController {
             $args['where'][] = $wpdb->prepare( 'slug = %s', $slug );
         }
 
-        $total_found = wp_bot_lite()->alerts->all( $args );
+        $total_found = wp_bot_lite()->orders->all( $args );
 
         if ( $total_found > 0 ) {
             return new WP_Error(
-                'bot_lite_rest_slug_exists', __( 'Alert slug already exists.', 'botlite' ), [
+                'bot_lite_rest_slug_exists', __( 'Order slug already exists.', 'botlite' ), [
 					'status' => 400,
 				]
             );
@@ -499,7 +499,7 @@ class AlertsController extends RESTController {
 
             // Auto-generate only for create page.
             if ( empty( $request['id'] ) ) {
-                $existing_alert = wp_bot_lite()->alerts->get(
+                $existing_order = wp_bot_lite()->orders->get(
                     [
 						'key' => 'slug',
 						'value' => $slug,
@@ -507,7 +507,7 @@ class AlertsController extends RESTController {
                 );
 
                 // If error, means, there is no slug by this slug
-                if ( empty( $existing_alert ) ) {
+                if ( empty( $existing_order ) ) {
                     return $slug;
                 }
 
@@ -531,14 +531,14 @@ class AlertsController extends RESTController {
     public function generate_beautiful_slug( string $slug = '', $i = 1 ): string {
         while ( true ) {
             $new_slug     = $slug . '-' . $i;
-            $existing_alert = wp_bot_lite()->alerts->get(
+            $existing_order = wp_bot_lite()->orders->get(
                 [
                     'key' => 'slug',
                     'value' => $new_slug,
                 ]
             );
 
-            if ( empty( $existing_alert ) ) {
+            if ( empty( $existing_order ) ) {
                 return $new_slug;
             } else {
                 $this->generate_beautiful_slug( $slug, $i + 1 );

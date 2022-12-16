@@ -5,11 +5,11 @@ import { IAlerts } from '../../interfaces';
 
 export const alertDefaultFormData = {
     id: 0,
-    title: '',
-    description: '',
-    alert_type_id: 0,
-    city_id: 0,
-    is_active: 1,
+    name: '',
+    ticker: '',
+    type: '',
+    exchange: 0,
+    close: 0
 };
 
 export const alertDefaultState: IAlerts = {
@@ -27,5 +27,4 @@ export const alertDefaultState: IAlerts = {
     form: {
         ...alertDefaultFormData,
     },
-    cityDropdowns: [],
 };

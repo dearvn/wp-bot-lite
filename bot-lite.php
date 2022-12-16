@@ -245,6 +245,7 @@ final class Wp_Bot_lite {
         $this->container['assets']   = new Dearvn\BotLite\Assets\Manager();
         $this->container['rest_api'] = new Dearvn\BotLite\REST\Api();
         $this->container['alerts']     = new Dearvn\BotLite\Alerts\Manager();
+        $this->container['orders']     = new Dearvn\BotLite\Orders\Manager();
     }
 
     /**

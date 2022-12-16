@@ -1,7 +1,7 @@
 {
   "name": "botlite",
   "version": "0.0.1",
-  "description": "A Job posting platform made by WordPress and best architectures",
+  "description": "A plugin made by WordPress and best architectures",
   "main": "src/index.tsx",
   "scripts": {
     "build": "wp-scripts build",

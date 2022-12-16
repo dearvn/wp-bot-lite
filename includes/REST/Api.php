@@ -33,7 +33,7 @@ class Api {
             [
                 \Dearvn\BotLite\REST\AlertTypesController::class,
                 \Dearvn\BotLite\REST\AlertsController::class,
-                \Dearvn\BotLite\REST\CitiesController::class,
+                \Dearvn\BotLite\REST\OrdersController::class,
             ]
         );
 

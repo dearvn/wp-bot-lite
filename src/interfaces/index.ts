@@ -16,3 +16,4 @@ export interface IResponseGenerator {
 
 // Alert types
 export * from './alerts';
+export * from './orders';

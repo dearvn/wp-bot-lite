@@ -5,6 +5,7 @@ import HomePage from '../pages/HomePage';
 import AlertsPage from '../pages/alerts/AlertsPage';
 import CreateAlert from '../pages/alerts/CreateAlert';
 import EditAlert from '../pages/alerts/EditAlert';
+import OrdersPage from '../pages/orders/OrdersPage';
 
 const routes = [
     {
@@ -22,6 +23,10 @@ const routes = [
     {
         path: '/alerts/edit/:id',
         element: EditAlert,
+    },
+    {
+        path: '/orders',
+        element: OrdersPage,
     },
 ];
 

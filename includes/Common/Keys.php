@@ -44,4 +44,13 @@ class Keys {
      * @since 0.3.0
      */
     const ALERT_SEEDER_RAN = 'botlite_alert_seeder_ran';
+
+    /**
+     * Order seeder ran key.
+     *
+     * @var string
+     *
+     * @since 0.3.0
+     */
+    const ORDER_SEEDER_RAN = 'botlite_order_seeder_ran';
 }

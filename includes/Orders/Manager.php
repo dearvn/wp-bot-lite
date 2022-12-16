@@ -1,25 +1,25 @@
 <?php
 
-namespace Dearvn\BotLite\Alerts;
+namespace Dearvn\BotLite\Orders;
 
 class Manager {
 
     /**
-     * Alert class.
+     * Order class.
      *
-     * @var Alert
+     * @var Order
      */
-    public $alert;
+    public $order;
 
     /**
      * Constructor.
      */
     public function __construct() {
-        $this->alert = new Alert();
+        $this->order = new Order();
     }
 
     /**
-     * Get all alerts by criteria.
+     * Get all orders by criteria.
      *
      * @since 0.3.0
      * @since 0.3.1 Fixed counting return type as integer.
@@ -52,17 +52,17 @@ class Manager {
             $args['where'] = '';
         }
 
-        $alerts = $this->alert->all( $args );
+        $orders = $this->order->all( $args );
 
         if ( $args['count'] ) {
-            return (int) $alerts;
+            return (int) $orders;
         }
 
-        return $alerts;
+        return $orders;
     }
 
     /**
-     * Get single alert by id|slug.
+     * Get single order by id|slug.
      *
      * @since 0.3.0
      *
@@ -81,11 +81,11 @@ class Manager {
             return null;
         }
 
-        return $this->alert->get_by( $args['key'], $args['value'] );
+        return $this->order->get_by( $args['key'], $args['value'] );
     }
 
     /**
-     * Create a new alert.
+     * Create a new order.
      *
      * @since 0.3.0
      *
@@ -94,12 +94,12 @@ class Manager {
      * @return int | WP_Error $id
      */
     public function create( $data ) {
-        // Prepare alert data for database-insertion.
-        $alert_data = $this->alert->prepare_for_database( $data );
+        // Prepare order data for database-insertion.
+        $order_data = $this->order->prepare_for_database( $data );
 
-        // Create alert now.
-        $alert_id = $this->alert->create(
-            $alert_data,
+        // Create order now.
+        $order_id = $this->order->create(
+            $order_data,
             [
                 '%s',
                 '%s',
@@ -113,42 +113,42 @@ class Manager {
             ]
         );
 
-        if ( ! $alert_id ) {
-            return new \WP_Error( 'botlite_alert_create_failed', __( 'Failed to create alert.', 'botlite' ) );
+        if ( ! $order_id ) {
+            return new \WP_Error( 'botlite_order_create_failed', __( 'Failed to create order.', 'botlite' ) );
         }
 
         /**
-         * Fires after a alert has been created.
+         * Fires after a order has been created.
          *
          * @since 0.3.0
          *
-         * @param int   $alert_id
-         * @param array $alert_data
+         * @param int   $order_id
+         * @param array $order_data
          */
-        do_action( 'botlite_alerts_created', $alert_id, $alert_data );
+        do_action( 'botlite_orders_created', $order_id, $order_data );
 
-        return $alert_id;
+        return $order_id;
     }
 
     /**
-     * Update alert.
+     * Update order.
      *
      * @since 0.3.0
      *
      * @param array $data
-     * @param int   $alert_id
+     * @param int   $order_id
      *
      * @return int | WP_Error $id
      */
-    public function update( array $data, int $alert_id ) {
-        // Prepare alert data for database-insertion.
-        $alert_data = $this->alert->prepare_for_database( $data );
+    public function update( array $data, int $order_id ) {
+        // Prepare order data for database-insertion.
+        $order_data = $this->order->prepare_for_database( $data );
 
-        // Update alert.
-        $updated = $this->alert->update(
-            $alert_data,
+        // Update order.
+        $updated = $this->order->update(
+            $order_data,
             [
-                'id' => $alert_id,
+                'id' => $order_id,
             ],
             [
                 '%s',
@@ -167,50 +167,50 @@ class Manager {
         );
 
         if ( ! $updated ) {
-            return new \WP_Error( 'botlite_alert_update_failed', __( 'Failed to update alert.', 'botlite' ) );
+            return new \WP_Error( 'botlite_order_update_failed', __( 'Failed to update order.', 'botlite' ) );
         }
 
         if ( $updated >= 0 ) {
             /**
-             * Fires after a alert is being updated.
+             * Fires after a order is being updated.
              *
              * @since 0.3.0
              *
-             * @param int   $alert_id
-             * @param array $alert_data
+             * @param int   $order_id
+             * @param array $order_data
              */
-            do_action( 'botlite_alerts_updated', $alert_id, $alert_data );
+            do_action( 'botlite_orders_updated', $order_id, $order_data );
 
-            return $alert_id;
+            return $order_id;
         }
 
-        return new \WP_Error( 'botlite_alert_update_failed', __( 'Failed to update the alert.', 'botlite' ) );
+        return new \WP_Error( 'botlite_order_update_failed', __( 'Failed to update the order.', 'botlite' ) );
     }
 
     /**
-     * Delete alerts data.
+     * Delete orders data.
      *
      * @since 0.3.0
      *
-     * @param array|int $alert_ids
+     * @param array|int $order_ids
      *
      * @return int|WP_Error
      */
-    public function delete( $alert_ids ) {
-        if ( is_array( $alert_ids ) ) {
-            $alert_ids = array_map( 'absint', $alert_ids );
+    public function delete( $order_ids ) {
+        if ( is_array( $order_ids ) ) {
+            $order_ids = array_map( 'absint', $order_ids );
         } else {
-            $alert_ids = [ absint( $alert_ids ) ];
+            $order_ids = [ absint( $order_ids ) ];
         }
 
         try {
-            $this->alert->query( 'START TRANSACTION' );
+            $this->order->query( 'START TRANSACTION' );
 
             $total_deleted = 0;
-            foreach ( $alert_ids as $alert_id ) {
-                $deleted = $this->alert->delete(
+            foreach ( $order_ids as $order_id ) {
+                $deleted = $this->order->delete(
                     [
-                        'id' => $alert_id,
+                        'id' => $order_id,
                     ],
                     [
                         '%d',
@@ -222,22 +222,22 @@ class Manager {
                 }
 
                 /**
-                 * Fires after a alert has been deleted.
+                 * Fires after a order has been deleted.
                  *
                  * @since 0.3.0
                  *
-                 * @param int $alert_id
+                 * @param int $order_id
                  */
-                do_action( 'botlite_alert_deleted', $alert_id );
+                do_action( 'botlite_order_deleted', $order_id );
             }
 
-            $this->alert->query( 'COMMIT' );
+            $this->order->query( 'COMMIT' );
 
             return $total_deleted;
         } catch ( \Exception $e ) {
-            $this->alert->query( 'ROLLBACK' );
+            $this->order->query( 'ROLLBACK' );
 
-            return new \WP_Error( 'botlite-alert-delete-error', $e->getMessage() );
+            return new \WP_Error( 'botlite-order-delete-error', $e->getMessage() );
         }
     }
 }

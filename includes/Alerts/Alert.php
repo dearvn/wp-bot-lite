@@ -43,9 +43,9 @@ class Alert extends BaseModel {
         return [
             'name'       => $this->sanitize( $data['name'], 'text' ),
             'close'        => $this->sanitize( $data['close'], 'number' ),
-            'ticker' => $this->sanitize( $data['ticker'], 'ticker' ),
-            'exchange' => $this->sanitize( $data['exchange'], 'exchange' ),
-            'type' => $this->sanitize( $data['type'], 'type' ),
+            'ticker' => $this->sanitize( $data['ticker'], 'text' ),
+            'exchange' => $this->sanitize( $data['exchange'], 'text' ),
+            'type' => $this->sanitize( $data['type'], 'text' ),
             'interval'  => $this->sanitize( $data['interval'], 'number' ),
             'created_at'  => $this->sanitize( $data['created_at'], 'text' )
         ];
@@ -61,8 +61,6 @@ class Alert extends BaseModel {
      * @return array
      */
     public static function to_array( ?object $alert ): array {
-        $alert_type = static::get_alert_type( $alert );
-
         $data = [
             'id'            => (int) $alert->id,
             'name'          => $alert->name,

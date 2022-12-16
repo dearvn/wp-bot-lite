@@ -4,20 +4,18 @@
 import actions from './actions';
 import {
     //citiesDropdownEndpoint,
-    alertsEndpoint,
-    //alertTypesEndpoint,
+    ordersEndpoint,
+    //orderTypesEndpoint,
 } from './endpoint';
 import {
-    //ICityDropdown,
-    IAlertFilter,
-    //IAlertTypes,
+    IOrderFilter,
     IResponseGenerator,
 } from '../../interfaces';
 //import { formatSelect2Data } from '../../utils/Select2Helper';
-import { prepareAlertDataForDatabase } from './utils';
+import { prepareOrderDataForDatabase } from './utils';
 
 const resolvers = {
-    *getAlerts(filters: IAlertFilter) {
+    *getOrders(filters: IOrderFilter) {
         if (filters === undefined) {
             filters = {};
         }
@@ -26,8 +24,10 @@ const resolvers = {
             filters as URLSearchParams
         ).toString();
 
+        console.log(">>>>>>>>>>>>>>>>>>>queryParam", queryParam);
+
         const response: IResponseGenerator = yield actions.fetchFromAPIUnparsed(
-            `${alertsEndpoint}?${queryParam}`
+            `${ordersEndpoint}?${queryParam}`
         );
         let totalPage = 0;
         let totalCount = 0;
@@ -36,35 +36,36 @@ const resolvers = {
             totalPage = response.headers.get('X-WP-TotalPages');
             totalCount = response.headers.get('X-WP-Total');
         }
-
-        yield actions.setAlerts(response.data);
+        debugger;
+        yield actions.setOrders(response.data);
         yield actions.setTotalPage(totalPage);
         yield actions.setTotal(totalCount);
-        return actions.setLoadingAlerts(false);
+        return actions.setLoadingOrders(false);
     },
 
-    *getAlertDetail(id: number) {
-        yield actions.setLoadingAlerts(true);
-        const path = `${alertsEndpoint}/${id}`;
+    *getOrderDetail(id: number) {
+        yield actions.setLoadingOrders(true);
+        const path = `${ordersEndpoint}/${id}`;
+        console.log(">>>>>>>>>>>>>>>path:", path)
         const response = yield actions.fetchFromAPI(path);
 
         if (response.id) {
-            const data = prepareAlertDataForDatabase(response);
+            const data = prepareOrderDataForDatabase(response);
 
             yield actions.setFormData(data);
         }
 
-        return actions.setLoadingAlerts(false);
+        return actions.setLoadingOrders(false);
     },
 
-    /**getAlertTypes() {
+    /**getOrderTypes() {
         const response: IResponseGenerator = yield actions.fetchFromAPIUnparsed(
-            alertTypesEndpoint
+            orderTypesEndpoint
         );
 
-        const alertTypes: Array<IAlertTypes> = response.data;
+        const orderTypes: Array<IOrderTypes> = response.data;
 
-        yield actions.setAlertTypes(formatSelect2Data(alertTypes));
+        yield actions.setOrderTypes(formatSelect2Data(orderTypes));
     },
 
     *getCitiesDropdown() {

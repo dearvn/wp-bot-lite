@@ -58,6 +58,7 @@ class Installer {
         // Register the tables to wpdb global.
         $wpdb->botlite_alert_types = $wpdb->prefix . 'botlite_alert_types';
         $wpdb->botlite_alerts      = $wpdb->prefix . 'botlite_alerts';
+        $wpdb->botlite_orders      = $wpdb->prefix . 'botlite_orders';
     }
 
     /**
@@ -93,5 +94,6 @@ class Installer {
         // Run the database table migrations.
         \Dearvn\BotLite\Databases\Migrations\AlertTypeMigration::migrate();
         \Dearvn\BotLite\Databases\Migrations\AlertsMigration::migrate();
+        \Dearvn\BotLite\Databases\Migrations\OrdersMigration::migrate();
     }
 }

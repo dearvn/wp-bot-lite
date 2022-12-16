@@ -67,6 +67,21 @@ function NavMenu() {
                     {__('Alerts', 'botlite')}
                 </span>
             </Link>
+            <Link
+                to="/orders"
+                className={`flex-grow text-slate-500 hover:text-primary border-b-2 hover:border-primary focus:border-primary py-6 px-4 sm:p-6 hover:bg-gray-liter max-w-[9rem] focus:outline-none focus:shadow-none ${
+                    isActive('/orders')
+                        ? 'bg-gray-liter text-primary border-primary'
+                        : 'border-transparent'
+                }`}
+            >
+                <span className="inline float-left">
+                    <FontAwesomeIcon icon={faProjectDiagram} />
+                </span>
+                <span className="sm:inline hidden float-left md:ml-3">
+                    {__('Orders', 'botlite')}
+                </span>
+            </Link>
         </div>
     );
 }

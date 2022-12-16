@@ -2,56 +2,56 @@
  * Internal dependencies.
  */
 import * as Types from './types';
-import { alertDefaultState } from './default-state';
+import { orderDefaultState } from './default-state';
 
-const reducer = (state = alertDefaultState, action: any) => {
+const reducer = (state = orderDefaultState, action: any) => {
     switch (action.type) {
-        case Types.GET_ALERTS:
+        case Types.GET_ORDERS:
             return {
                 ...state,
-                alerts: action.alerts,
+                orders: action.orders,
             };
 
-        case Types.GET_ALERT_DETAIL:
+        case Types.GET_ORDER_DETAIL:
             return {
                 ...state,
-                alert: action.alert,
+                order: action.order,
             };
 
-        case Types.SET_LOADING_ALERTS:
+        case Types.SET_LOADING_ORDERS:
             return {
                 ...state,
-                loadingAlerts: action.loadingAlerts,
+                loadingOrders: action.loadingOrders,
             };
 
-        case Types.SET_TOTAL_ALERTS:
+        case Types.SET_TOTAL_ORDERS:
             return {
                 ...state,
                 total: action.total,
             };
 
-        case Types.SET_TOTAL_ALERTS_PAGE:
+        case Types.SET_TOTAL_ORDERS_PAGE:
             return {
                 ...state,
                 totalPage: action.totalPage,
             };
 
-        case Types.SET_ALERTS_FILTER:
+        case Types.SET_ORDERS_FILTER:
             return {
                 ...state,
                 filters: action.filters,
             };
 
-        case Types.SET_ALERT_FORM_DATA:
+        case Types.SET_ORDER_FORM_DATA:
             return {
                 ...state,
                 form: action.form,
             };
 
-        case Types.SET_ALERTS_SAVING:
+        case Types.SET_ORDERS_SAVING:
             return {
                 ...state,
-                alertsSaving: action.alertsSaving,
+                ordersSaving: action.ordersSaving,
             };
     }
 

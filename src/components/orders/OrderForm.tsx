@@ -7,42 +7,42 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies.
  */
-import AlertCard from './AlertCard';
-import AlertSubmit from './AlertSubmit';
-import alertStore from '../../data/alerts';
-import AlertFormSidebar from './AlertFormSidebar';
+import OrderCard from './OrderCard';
+import OrderSubmit from './OrderSubmit';
+import orderStore from '../../data/orders';
+import OrderFormSidebar from './OrderFormSidebar';
 import { IInputResponse, Input } from '../inputs/Input';
 //import { Select2SingleRow } from '../inputs/Select2Input';
-import { IAlert, IAlertFormData } from '../../interfaces';
+import { IOrder, IOrderFormData } from '../../interfaces';
 
 type Props = {
-    alert?: IAlert;
+    order?: IOrder;
 };
 
-export default function AlertForm({ alert }: Props) {
+export default function OrderForm({ order }: Props) {
     const dispatch = useDispatch();
-    /*const alertTypes: Array<Select2SingleRow> = useSelect(
-        (select) => select(alertStore).getAlertTypes(),
+    /*const orderTypes: Array<Select2SingleRow> = useSelect(
+        (select) => select(orderStore).getOrderTypes(),
         []
     );
 
     const cityDropdowns: Array<Select2SingleRow> = useSelect(
-        (select) => select(alertStore).getCitiesDropdown(),
+        (select) => select(orderStore).getCitiesDropdown(),
         []
     );*/
 
-    const form: IAlertFormData = useSelect(
-        (select) => select(alertStore).getForm(),
+    const form: IOrderFormData = useSelect(
+        (select) => select(orderStore).getForm(),
         []
     );
 
-    const loadingAlerts: boolean = useSelect(
-        (select) => select(alertStore).getLoadingAlerts(),
+    const loadingOrders: boolean = useSelect(
+        (select) => select(orderStore).getLoadingOrders(),
         []
     );
 
     const onChange = (input: IInputResponse) => {
-        dispatch(alertStore).setFormData({
+        dispatch(orderStore).setFormData({
             ...form,
             [input.name]:
                 typeof input.value === 'object'
@@ -56,32 +56,32 @@ export default function AlertForm({ alert }: Props) {
             <form>
                 <div className="flex flex-col md:flex-row">
                     <div className="md:basis-1/5">
-                        <AlertFormSidebar loading={loadingAlerts} />
+                        <OrderFormSidebar loading={loadingOrders} />
                     </div>
 
-                    {loadingAlerts ? (
+                    {loadingOrders ? (
                         <div className="md:basis-4/5">
-                            <AlertCard>
+                            <OrderCard>
                                 <div className="animate-pulse h-4 bg-slate-100 w-full p-2.5 rounded-lg mt-5"></div>
                                 <div className="animate-pulse h-4 bg-slate-100 w-full p-2.5 rounded-lg mt-5"></div>
                                 <div className="animate-pulse h-4 bg-slate-100 w-full p-2.5 rounded-lg mt-5"></div>
-                            </AlertCard>
-                            <AlertCard>
+                            </OrderCard>
+                            <OrderCard>
                                 <div className="animate-pulse h-4 bg-slate-100 w-full p-2.5 rounded-lg mt-5"></div>
                                 <div className="animate-pulse h-4 bg-slate-100 w-full p-2.5 rounded-lg mt-5"></div>
                                 <div className="animate-pulse h-4 bg-slate-100 w-full p-2.5 rounded-lg mt-5"></div>
-                            </AlertCard>
+                            </OrderCard>
                         </div>
                     ) : (
                         <>
                             <div className="md:basis-4/5">
-                                <AlertCard className="alert-general-info">
+                                <OrderCard className="order-general-info">
                                     <Input
                                         type="text"
-                                        label={__('Alert Name', 'botlite')}
+                                        label={__('Order Name', 'botlite')}
                                         id="name"
                                         placeholder={__(
-                                            'Enter Alert Name',
+                                            'Enter Order Name',
                                             'botlite'
                                         )}
                                         value={form.name}
@@ -118,25 +118,25 @@ export default function AlertForm({ alert }: Props) {
                                         value={form.close}
                                         onChange={onChange}
                                     />
-                                </AlertCard>
-                                {/*<AlertCard className="alert-description-info">
+                                </OrderCard>
+                                {/*<OrderCard className="order-description-info">
                                     <Input
                                         type="text-editor"
-                                        label={__('Alert details', 'botlite')}
+                                        label={__('Order details', 'botlite')}
                                         id="description"
                                         placeholder={__(
-                                            'Enter Alert description and necessary requirements.',
+                                            'Enter Order description and necessary requirements.',
                                             'botlite'
                                         )}
                                         editorHeight="150px"
                                         value={form.description}
                                         onChange={onChange}
                                     />
-                                        </AlertCard>*/}
+                                        </OrderCard>*/}
                                 
 
                                 <div className="flex justify-end md:hidden">
-                                    <AlertSubmit />
+                                    <OrderSubmit />
                                 </div>
                             </div>
                         </>

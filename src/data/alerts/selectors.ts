@@ -65,11 +65,11 @@ const selectors = {
         return form;
     },
 
-    getCitiesDropdown(state: IAlerts) {
+    /*getCitiesDropdown(state: IAlerts) {
         const { cityDropdowns } = state;
 
         return cityDropdowns;
-    },
+    },*/
 };
 
 export default selectors;
