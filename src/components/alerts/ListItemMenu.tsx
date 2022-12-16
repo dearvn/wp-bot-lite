@@ -106,7 +106,7 @@ export default function ListItemMenu({ alert }: IAlert) {
             >
                 <Menu.Items className="absolute w-40 z-10 top-4 -left-28 mt-2 origin-top-right rounded-md shadow-lg bg-white p-2 border-gray-dark">
                     <div className="px-1 py-1 bg-white">
-                        <Menu.Item>
+                        {/*<Menu.Item>
                             <Link
                                 to={`/alerts/edit/${id}`}
                                 className="text-left hover:opacity-80 block text-slate-600 hover:text-slate-700 group items-center w-full px-3 text-sm bg-white outline-none hover:outline-none focus:outline-none focus:shadow-none mb-2"
@@ -116,7 +116,7 @@ export default function ListItemMenu({ alert }: IAlert) {
                                     {__('Edit', 'botlite')}
                                 </span>
                             </Link>
-                        </Menu.Item>
+                        </Menu.Item>*/}
                         <Menu.Item>
                             <button
                                 onClick={showDeleteAlert}

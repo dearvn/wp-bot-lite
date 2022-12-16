@@ -354,7 +354,27 @@ class AlertsController extends RESTController {
                         'context'     => array( 'view', 'edit' ),
                         'format'      => 'date-time',
                         'readonly'    => true,
-                )
+                ),
+                'contracts'       => array(
+                    'description' => __( 'Contracts', 'tradingview_alerts' ),
+                    'type'        => 'string',
+                    'context'     => array( 'view', 'edit' ),
+                    'required'    => true,
+                    'minLength'   => 1,
+                    'arg_options' => array(
+                            'sanitize_callback' => 'sanitize_text_field',
+                    ),
+                ),
+                'position_size'       => array(
+                    'description' => __( 'Position Size', 'tradingview_alerts' ),
+                    'type'        => 'string',
+                    'context'     => array( 'view', 'edit' ),
+                    'required'    => true,
+                    'minLength'   => 1,
+                    'arg_options' => array(
+                            'sanitize_callback' => 'sanitize_text_field',
+                    ),
+                ),
             ],
         ];
 
@@ -380,6 +400,8 @@ class AlertsController extends RESTController {
         $data['exchange']       = $request['exchange'];
         $data['interval']       = $request['interval'];
         $data['close']          = $request['close'];
+        $data['contracts']      = $request['contracts'];
+        $data['position_size']  = $request['position_size'];
 
         if (!empty($request['time'])) {
             $tz_local = new \DateTimeZone(get_option('gmt_offset'));

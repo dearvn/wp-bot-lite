@@ -119,14 +119,14 @@ export default function AlertsPage() {
             <div className="flex-6 mr-3">
                 <PageHeading text={__('Alerts', 'botlite')} />
             </div>
-            <div className="flex-1 text-left">
+            {/*<div className="flex-1 text-left">
                 <Button
                     text={__('New', 'botlite')}
                     type="primary"
                     icon={faPlus}
                     onClick={() => navigate('/alerts/new')}
                 />
-            </div>
+            </div>*/}
         </div>
     );
 

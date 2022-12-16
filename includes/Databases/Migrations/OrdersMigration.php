@@ -34,8 +34,8 @@ class OrdersMigration extends DBMigrator {
             `interval` tinyint(1) unsigned NOT NULL,
             `entry_price` decimal(8,2) NOT NULL,
             `entry_at` datetime NOT NULL,
-            `exit_price` decimal(8,2) NOT NULL,
-            `exit_at` datetime NOT NULL,
+            `exit_price` decimal(8,2) NULL,
+            `exit_at` datetime NULL,
             PRIMARY KEY (`id`)
         ) $charset_collate";
 

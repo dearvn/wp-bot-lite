@@ -131,12 +131,6 @@ http://[domain]/wp-admin/admin.php?page=botlite#/
 
 #### REST API Documentation
 
-1. **Alert Types**
-    - Method: `GET`
-    - URL: http://[domain]/wp-json/bot-lite/v1/alert-types
-1. **Cities dropdown**
-    - Method: `GET`
-    - URL: http://[domain]/wp-json/bot-lite/v1/cities/dropdown
 1. **Alert Lists**
     - Method: `GET`
     - URL: http://[domain]/wp-json/bot-lite/v1/alerts
@@ -144,33 +138,26 @@ http://[domain]/wp-admin/admin.php?page=botlite#/
     - Method: `GET`
     - URL By ID: http://[domain]/wp-json/bot-lite/v1/alerts/1
     - URL By Slug: http://[domain]/wp-json/bot-lite/v1/alerts/first-alert
+
 1. **Create Alert**
     - Method: `POST`
-    - URL: http://[domain]/wp-json/bot-lite/v1/Alerts
+    - URL Webhook on TradingView: http://[domain]/wp-json/bot-lite/v1/alerts
     - Body:
     ```json
     {
-        "title": "Simple Alert Post",
-        "slug": "simple-alert-post",
-        "description": "Simple alert post description",
-        "city_id": 1,
-        "alert_type_id": 2,
-        "is_active": 1
+        "name":"{{strategy.order.action}}",
+        "type": "{{strategy.order.action}}",
+        "close": "{{close}}",
+        "interval": "{{interval}}",
+        "exchange": "{{exchange}}",
+        "ticker": "{{ticker}}",
+        "time": "{{time}}",
+        "timenow": "{{timenow}}",
+        "contracts": "{{strategy.order.contracts}}",
+        "position_size":"{{strategy.position_size}}"
     }
     ```
-1. **Update Alert**
-    - Method: `PUT`
-    - URL: http://[domain]/wp-json/bot-lite/v1/alerts/1
-    - Body:
-    ```json
-    {
-        "title": "Simple Alert Post Updated",
-        "slug": "simple-alert-post-updated",
-        "description": "Simple alert post description",
-        "city_id": 1,
-        "alert_type_id": 2,
-        "is_active": 1
-    }
+
     ```
 1. **Delete Alerts**
     - Method: `DELETE`
@@ -182,11 +169,9 @@ http://[domain]/wp-admin/admin.php?page=botlite#/
     }
     ```
 
-**Detailed Documentation** -
-[View Detailed documentations with parameters and responses of the REST API](https://github.com/dearvn/bot-lite/blob/main/Rest-API-Docs.MD)
 
 ### Version & Changelogs
-**v0.0.1 - 05/12/2022**
+**v0.0.1 - 12/12/2022**
 
 1. New Feature : Alert Create.
 2. New Feature : Alert Update.

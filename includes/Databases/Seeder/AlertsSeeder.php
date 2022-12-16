@@ -38,6 +38,7 @@ class AlertsSeeder extends DBSeeder {
                 'close'         => 154.20,
                 'exchange'      => 'NASDAQ',
                 'created_at'            => current_datetime()->format( 'Y-m-d H:i:s' ),
+                
             ),
         );
 

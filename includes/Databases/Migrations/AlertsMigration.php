@@ -30,6 +30,8 @@ class AlertsMigration extends DBMigrator {
             `interval` tinyint(1) unsigned NOT NULL,
             `close` decimal(8,2) NOT NULL,
             `created_at` datetime NOT NULL,
+            `contracts` tinyint(1) NULL,
+            `position_size` tinyint(1) NULL,
             PRIMARY KEY (`id`)
         ) $charset_collate";
 

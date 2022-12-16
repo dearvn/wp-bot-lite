@@ -34,7 +34,9 @@ class Alert extends BaseModel {
             'interval'      => '',
             'ticker'        => '',
             'exchange'      => '',
-            'created_at'  => current_datetime()->format( 'Y-m-d H:i:s' ),
+            'created_at'    => '',
+            'contracts'     => 0,
+            'position_size' => 0
         ];
 
         $data = wp_parse_args( $data, $defaults );
@@ -47,7 +49,9 @@ class Alert extends BaseModel {
             'exchange' => $this->sanitize( $data['exchange'], 'text' ),
             'type' => $this->sanitize( $data['type'], 'text' ),
             'interval'  => $this->sanitize( $data['interval'], 'number' ),
-            'created_at'  => $this->sanitize( $data['created_at'], 'text' )
+            'created_at'  => $this->sanitize( $data['created_at'], 'text' ),
+            'contracts'     => $this->sanitize( $data['contracts'], 'number' ),
+            'position_size' => $this->sanitize( $data['position_size'], 'number' )
         ];
     }
 
@@ -68,70 +72,12 @@ class Alert extends BaseModel {
             'type'          => $alert->type,
             'exchange'      => $alert->exchange,
             'interval'      => $alert->interval,
-            'close'                 => $alert->close,
+            'close'         => $alert->close,
             'created_at'    => date('m/d/Y H:i', strtotime($alert->created_at)),
+            'contracts'     => $alert->contracts,
+            'position_size' => $alert->position_size
         ];
 
         return $data;
-    }
-
-    /**
-     * Get alert type of a alert.
-     *
-     * @since 0.3.0
-     *
-     * @param object $alert
-     *
-     * @return object|null
-     */
-    public static function get_alert_type( ?object $alert ): ?object {
-        $alert_type = new AlertType();
-
-        $columns = 'id, name, slug';
-        return $alert_type->get( (int) $alert->alert_type_id, $columns );
-    }
-
-    /**
-     * Get if alert is a remote alert or not.
-     *
-     * We'll fetch this from alert_type_id.
-     * If alert type is for remote, then it's a remote alert.
-     *
-     * @param object $alert_type
-     * @return boolean
-     */
-    public static function get_is_remote( ?object $alert_type ): bool {
-        if ( empty( $alert_type ) ) {
-            return false;
-        }
-
-        return $alert_type->slug === 'remote';
-    }
-
-    /**
-     * Get city of a alert.
-     *
-     * @since 0.3.0
-     *
-     * @param object $alert
-     *
-     * @return null | array
-     */
-    public static function get_alert_city( ?object $alert ): ?array {
-        if ( empty( $alert->city_id ) ) {
-            return null;
-        }
-
-        $user = get_user_by( 'id', $alert->city_id );
-
-        if ( empty( $user ) ) {
-            return null;
-        }
-
-        return [
-            'id'         => $alert->city_id,
-            'name'       => $user->display_name,
-            'avatar_url' => get_avatar_url( $user->ID ),
-        ];
     }
 }
