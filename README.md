@@ -1,5 +1,17 @@
 # WP Bot Lite
-A simple project to manage real estate for agency to work in WordPress plugin development using WordPress Rest API, WP-script, React, React Router, Tailwind CSS, PostCSS, Eslint, WP-Data, WP-Data Store, React Components, React CRUD, i18n, PHPUnit Test, JestUnit Test, e2e Test, Gutenberg blocks and PHP OOP plugin architecture easily in a minute.
+1. Receive the alert from strategy of TradingView => DONE
+2. Create order to monitor => TODO
+3. Integrate to exchange, ex: Binance to trade realtime => TODO
+
+# Screen
+
+1. Manage Alerts
+
+![Alt text](https://github.com/dearvn/wp-bot-lite/raw/main/alert.png?raw=true "Alerts")
+
+
+# Technical stack
+Using WordPress Rest API, WP-script, React, React Router, Tailwind CSS, PostCSS, Eslint, WP-Data, WP-Data Store, React Components, React CRUD, i18n, PHPUnit Test, JestUnit Test, e2e Test, Gutenberg blocks and PHP OOP plugin architecture easily in a minute.
 
 ----
 
