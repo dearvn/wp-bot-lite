@@ -1,4 +1,9 @@
 /**
+ * External dependencies.
+ */
+import { __ } from '@wordpress/i18n';
+
+/**
  * Internal dependencies.
  */
 import { ISelect2Input } from '../components/inputs/Select2Input';
@@ -76,3 +81,14 @@ export const getSelectedOption = (options: Array<any>, value: string) => {
 
     return null;
 };
+
+export const selectOptions = [
+    {
+        label: __('Yes', 'botlite'),
+        value: 'yes'
+    },
+    {
+        label: __('No', 'botlite'),
+        value: 'no'
+    }
+];

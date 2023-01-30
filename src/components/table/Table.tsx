@@ -45,10 +45,10 @@ export const getHeaderRowClassName = (
 ) => {
     let className = `border-b border-gray-lite text-sm px-3 py-4  uppercase ${header.className}`;
 
-    // Add style for first header
+    // Add style for first text-generator
     className += `${index === 0 ? ' pl-6 w-0 ' : ' '}`;
 
-    // Add style for last header
+    // Add style for last text-generator
     className += headers.length === index + 1 ? 'text-right pr-7' : 'text-left';
 
     // Add custom style

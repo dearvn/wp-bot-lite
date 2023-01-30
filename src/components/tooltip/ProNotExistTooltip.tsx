@@ -25,7 +25,7 @@ const ProNotExistTooltip = ({ desc }: IProNotExistTooltip) => {
                     <Tooltip
                         innerContent={
                             <Button
-                                text={__('PRO', 'cp')}
+                                text={__('PRO', 'botlite')}
                                 style={{
                                     padding: '5px 12px',
                                     marginLeft: 10,
@@ -38,7 +38,7 @@ const ProNotExistTooltip = ({ desc }: IProNotExistTooltip) => {
                         {desc}
                         {__(
                             'This feature is only available in Pro version.',
-                            'cp'
+                            'botlite'
                         )}
                     </Tooltip>
                 </>
@@ -48,7 +48,7 @@ const ProNotExistTooltip = ({ desc }: IProNotExistTooltip) => {
 };
 
 ProNotExistTooltip.defaultProps = {
-    desc: __("Sorry, You can't view this.", 'cp'),
+    desc: __("Sorry, You can't view this.", 'botlite'),
 };
 
 export default ProNotExistTooltip;

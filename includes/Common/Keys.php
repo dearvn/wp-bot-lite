@@ -53,4 +53,13 @@ class Keys {
      * @since 0.3.0
      */
     const ORDER_SEEDER_RAN = 'botlite_order_seeder_ran';
+
+    /**
+     * Settings seeder ran key.
+     *
+     * @var string
+     *
+     * @since 1.0.0
+     */
+    const SETTING_SEEDER_RAN = 'socbase_ai_setting_seeder_ran';
 }

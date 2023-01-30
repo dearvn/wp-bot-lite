@@ -22,6 +22,7 @@ class Manager {
             \Dearvn\BotLite\Databases\Seeder\AlertTypeSeeder::class,
             \Dearvn\BotLite\Databases\Seeder\AlertsSeeder::class,
             \Dearvn\BotLite\Databases\Seeder\OrdersSeeder::class,
+            \Dearvn\BotLite\Databases\Seeder\SettingsSeeder::class,
         ];
 
         foreach ( $seeder_classes as $seeder_class ) {

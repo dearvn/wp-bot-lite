@@ -23,7 +23,7 @@ export interface ISpinner {
 const SpinnerDefaultProps = {
     size: 'sm',
     align: 'center',
-    text: __('Loading…', 'cp'),
+    text: __('Loading…', 'botlite'),
 };
 
 const Spinner = ({ align, text }: ISpinner) => {

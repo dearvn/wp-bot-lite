@@ -1,2 +1,3 @@
-export const restBase = '/bot-lite/v1/';
+import {restBase} from "../../endpoints";
+
 export const ordersEndpoint = `${restBase}orders`;

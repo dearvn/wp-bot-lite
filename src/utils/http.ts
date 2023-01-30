@@ -52,14 +52,14 @@ const globalErrorHandler = (error: any) => {
         toast.error(
             __(
                 'The requested resource does not exist or has been deleted.',
-                'cp'
+                'botlite'
             )
         );
     }
 
     if (statusCode === 401) {
         toast.error(
-            __('Unauthorized. Please login to access this resource.', 'cp')
+            __('Unauthorized. Please login to access this resource.', 'botlite')
         );
     }
 

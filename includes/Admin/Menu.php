@@ -37,6 +37,7 @@ class Menu {
 
         if ( current_user_can( $capability ) ) {
             $submenu[ $slug ][] = [ esc_attr__( 'Home', 'botlite' ), $capability, 'admin.php?page=' . $slug . '#/' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+            $submenu[ $slug ][] = [ esc_attr__( 'Settings', 'botlite' ), $capability, 'admin.php?page=' . $slug . '#/settings' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
             $submenu[ $slug ][] = [ esc_attr__( 'Alerts', 'botlite' ), $capability, 'admin.php?page=' . $slug . '#/alerts' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
             $submenu[ $slug ][] = [ esc_attr__( 'Orders', 'botlite' ), $capability, 'admin.php?page=' . $slug . '#/orders' ]; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
         }

@@ -64,6 +64,11 @@ export interface IButton {
      * Button Inline style.
      */
     style?: React.CSSProperties;
+
+    /**
+     * Is submit button
+     */
+    isSubmitButton?: boolean;
 }
 
 const defaultButtonProps = {
@@ -79,6 +84,7 @@ const defaultButtonProps = {
     smTextHidden: false,
     disabled: false,
     style: {},
+    isSubmitButton: false,
 };
 
 const Button = (props: IButton) => {
@@ -95,6 +101,7 @@ const Button = (props: IButton) => {
         textClassName,
         smTextHidden,
         style,
+        isSubmitButton,
     } = { ...defaultButtonProps, ...props };
 
     /**
@@ -181,7 +188,7 @@ const Button = (props: IButton) => {
             style={{ ...style }}
             onClick={onClick}
             disabled={disabled}
-            type="button"
+            type={isSubmitButton ? 'submit' : 'button'}
         >
             {typeof icon !== 'undefined' && iconPosition === 'left' && (
                 <span

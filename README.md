@@ -3,6 +3,15 @@
 2. Create order to monitor => TODO
 3. Integrate to exchange, ex: Binance to trade realtime => TODO
 
+## Binance Setup ##
+* Create a [Binance Account](https://www.binance.com/vi/activity/referral-entry/CPA?fromActivityPage=true&ref=CPA_005ZZU82GA) (This link uses my referral which gives you 5% kickback on trades & would be greatly appreciated)
+* __Enable Two-factor Authentication in the security section to keep your crypto safe.__
+* Create a new API key under the API Management section.
+*  [✓] Read Info [✓] Enable Trading [✓] Enable Futures [X] Enable Withdrawals
+* Whitelist your IP address to further secure your account, and so that your API keys don't expire after 3 months.
+* Fill in your api keys into api_secret and api_key in Settings
+---
+
 # Screen
 
 1. Manage Alerts

@@ -2,6 +2,8 @@
 
 namespace Dearvn\BotLite\Assets;
 
+use Dearvn\BotLite\Helpers\Url;
+
 /**
  * Asset Manager class.
  *
@@ -30,8 +32,10 @@ class Manager {
         $this->register_styles( $this->get_styles() );
         $this->register_scripts( $this->get_scripts() );
 
+        $this->localize_script();
+
         // Register block scripts.
-        $this->register_all_blocks();
+        //$this->register_all_blocks();
     }
 
     /**
@@ -43,7 +47,12 @@ class Manager {
      */
     public function get_styles(): array {
         return [
-            'bot-lite-css' => [
+            'botlite-custom-css' => [
+                'src'     => BOT_LITE_ASSETS . '/css/style.css',
+                'version' => BOT_LITE_VERSION,
+                'deps'    => [],
+            ],
+            'botlite-css' => [
                 'src'     => BOT_LITE_BUILD . '/index.css',
                 'version' => BOT_LITE_VERSION,
                 'deps'    => [],
@@ -62,7 +71,7 @@ class Manager {
         $dependency = require_once BOT_LITE_DIR . '/build/index.asset.php';
 
         return [
-            'bot-lite-app' => [
+            'botlite-app' => [
                 'src'       => BOT_LITE_BUILD . '/index.js',
                 'version'   => filemtime( BOT_LITE_DIR . '/build/index.js' ),
                 'deps'      => $dependency['dependencies'],
@@ -106,13 +115,11 @@ class Manager {
      * @return void
      */
     public function enqueue_admin_assets() {
-        // Check if we are on the admin page and page=botlite.
-        if ( ! is_admin() || ! isset( $_GET['page'] ) || sanitize_text_field( wp_unslash( $_GET['page'] ) ) !== 'botlite' ) {
-            return;
+        
+        if ( Url::is_bot_lite_page() || Url::is_new_or_edit_post() ) {
+            wp_enqueue_style( 'botlite-css' );
+             wp_enqueue_script( 'botlite-app' );
         }
-
-        wp_enqueue_style( 'bot-lite-css' );
-        wp_enqueue_script( 'bot-lite-app' );
     }
 
     /**
@@ -144,5 +151,37 @@ class Manager {
 
             register_block_type_from_metadata( $block_folder,  $block_options );
         }
+    }
+
+    /**
+     * Localize script for both frontend and backed.
+     *
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function localize_script(): void {
+        wp_enqueue_style( 'botlite-custom-css' );
+        wp_enqueue_script( 'botlite', BOT_LITE_ASSETS . '/js/main.js', filemtime( BOT_LITE_DIR . '/assets/js/main.js' ), true );
+
+        $settings = wp_bot_lite()->settings->get();
+
+        wp_localize_script( 'botlite',
+            'botlite',
+            [
+                'enableTrading'  => $settings['enable_trading'],
+                'apiKey'    => $settings['api_key'],
+                'secretKey'    => $settings['secret_key'],
+                'urls'      => [
+                    'admin'     => admin_url(),
+                    'adminPage' => admin_url( 'admin.php' ),
+                    'newPost'   => admin_url( 'post-new.php' ),
+                ],
+                'images'    => [
+                    'logoSm' => BOT_LITE_ASSETS . '/images/logo-sm.png',
+                    'logo'   => BOT_LITE_ASSETS . '/images/logo.png',
+                ]
+            ]
+        );
     }
 }

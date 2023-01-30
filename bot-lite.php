@@ -25,7 +25,7 @@ final class Wp_Bot_lite {
      *
      * @var string
      */
-    const VERSION = '0.0.1';
+    const VERSION = '0.0.2';
 
     /**
      * Plugin slug.
@@ -61,7 +61,23 @@ final class Wp_Bot_lite {
         register_deactivation_hook( __FILE__, [ $this, 'deactivate' ] );
 
         add_action( 'wp_loaded', [ $this, 'flush_rewrite_rules' ] );
+        add_action( 'activated_plugin', [ $this, 'activation_redirect' ] );
         $this->init_plugin();
+    }
+
+    /**
+     * Redirect to botlite settings page after plugin activation.
+     *
+     * @since 1.0.0
+     *
+     * @param $plugin
+     * @return void
+     */
+    public function activation_redirect( $plugin ): void {
+        if ( plugin_basename( __FILE__ ) === $plugin ) {
+            wp_safe_redirect( admin_url( 'admin.php?page=botlite#/settings' ) );
+            exit();
+        }
     }
 
     /**
@@ -207,6 +223,15 @@ final class Wp_Bot_lite {
      * @return void
      */
     public function includes() {
+
+        // Common classes.
+        $this->container['assets']   = new Dearvn\BotLite\Assets\Manager();
+        $this->container['blocks']   = new Dearvn\BotLite\Blocks\Manager();
+        $this->container['rest_api'] = new Dearvn\BotLite\REST\Api();
+        $this->container['alerts']     = new Dearvn\BotLite\Alerts\Manager();
+        $this->container['orders']     = new Dearvn\BotLite\Orders\Manager();
+        $this->container['settings'] = new Dearvn\BotLite\Settings\Manager();
+
         if ( $this->is_request( 'admin' ) ) {
             $this->container['admin_menu'] = new Dearvn\BotLite\Admin\Menu();
         }
@@ -220,32 +245,14 @@ final class Wp_Bot_lite {
      * @return void
      */
     public function init_hooks() {
-        // Init classes
-        add_action( 'init', [ $this, 'init_classes' ] );
 
-        // Localize our plugin
+        // Localize our plugin.
         add_action( 'init', [ $this, 'localization_setup' ] );
 
-        // Add the plugin page links
+        // Add the plugin page links.
         add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), [ $this, 'plugin_action_links' ] );
-    }
-
-    /**
-     * Instantiate the required classes.
-     *
-     * @since 0.2.0
-     *
-     * @return void
-     */
-    public function init_classes() {
-        // Init necessary hooks
-        new Dearvn\BotLite\User\Hooks();
-
-        // Common classes
-        $this->container['assets']   = new Dearvn\BotLite\Assets\Manager();
-        $this->container['rest_api'] = new Dearvn\BotLite\REST\Api();
-        $this->container['alerts']     = new Dearvn\BotLite\Alerts\Manager();
-        $this->container['orders']     = new Dearvn\BotLite\Orders\Manager();
+    
+        
     }
 
     /**
@@ -260,13 +267,9 @@ final class Wp_Bot_lite {
     public function localization_setup() {
         load_plugin_textdomain( 'botlite', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
-        // Load the React-pages translations.
         if ( is_admin() ) {
-            // Check if handle is registered in wp-script
-            $this->container['assets']->register_all_scripts();
-
-            // Load wp-script translation for bot-lite-app
-            wp_set_script_translations( 'bot-lite-app', 'botlite', plugin_dir_path( __FILE__ ) . 'languages/' );
+            // Load wp-script translation for botlite-app.
+            wp_set_script_translations( 'botlite-app', 'botlite', plugin_dir_path( __FILE__ ) . 'languages/' );
         }
     }
 
@@ -309,7 +312,7 @@ final class Wp_Bot_lite {
      */
     public function plugin_action_links( $links ) {
         $links[] = '<a href="' . admin_url( 'admin.php?page=botlite#/settings' ) . '">' . __( 'Settings', 'botlite' ) . '</a>';
-        $links[] = '<a href="https://github.com/dearvn/bot-lite#quick-start" target="_blank">' . __( 'Documentation', 'botlite' ) . '</a>';
+        $links[] = '<a href="https://github.com/dearvn/botlite#quick-start" target="_blank">' . __( 'Documentation', 'botlite' ) . '</a>';
 
         return $links;
     }

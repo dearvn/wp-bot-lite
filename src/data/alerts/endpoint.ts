@@ -1,4 +1,5 @@
-export const restBase = '/bot-lite/v1/';
+import {restBase} from "../../endpoints";
+
 export const alertsEndpoint = `${restBase}alerts`;
 export const alertTypesEndpoint = `${restBase}alert-types`;
 //export const citiesDropdownEndpoint = `${restBase}cities/dropdown`;

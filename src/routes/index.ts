@@ -2,6 +2,8 @@
  * Internal dependencies
  */
 import HomePage from '../pages/HomePage';
+import SettingsPage from "../pages/SettingsPage";
+
 import AlertsPage from '../pages/alerts/AlertsPage';
 import CreateAlert from '../pages/alerts/CreateAlert';
 import EditAlert from '../pages/alerts/EditAlert';
@@ -11,6 +13,10 @@ const routes = [
     {
         path: '/',
         element: HomePage,
+    },
+    {
+        path: '/settings',
+        element: SettingsPage,
     },
     {
         path: '/alerts',

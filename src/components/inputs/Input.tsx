@@ -10,7 +10,7 @@ import { isEmpty } from 'lodash';
 import Label from './InputLabel';
 import Select2Input, { Select2SingleRow } from './Select2Input';
 import SwitchCheckbox from './SwitchCheckbox';
-import TextEditor from './TextEditor';
+// import TextEditor from './TextEditor';
 import { parseHtml } from '../../utils/text-parser';
 import { getGlobalData } from '../../utils/global-data';
 
@@ -373,17 +373,17 @@ export function Input(props: InputProps) {
                     />
                 )}
 
-                {type === 'text-editor' && (
-                    <div className="w-full">
-                        <TextEditor
-                            id={id}
-                            height={editorHeight}
-                            onChange={onChange}
-                            value={value}
-                            placeholder={placeholder}
-                        />
-                    </div>
-                )}
+                {/*{type === 'text-editor' && (*/}
+                {/*    <div className="w-full">*/}
+                {/*        <TextEditor*/}
+                {/*            id={id}*/}
+                {/*            height={editorHeight}*/}
+                {/*            onChange={onChange}*/}
+                {/*            value={value}*/}
+                {/*            placeholder={placeholder}*/}
+                {/*        />*/}
+                {/*    </div>*/}
+                {/*)}*/}
 
                 {type === 'textarea' && (
                     <textarea

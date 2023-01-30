@@ -40,19 +40,19 @@ export default function DatePickerData(): Array<IDatePickerData> {
 
     return [
         {
-            name: __('Today', 'cp'),
+            name: __('Today', 'botlite'),
             value: 'today',
             startDate: currentDate,
             endDate: currentDate,
         },
         {
-            name: __('Yesterday', 'cp'),
+            name: __('Yesterday', 'botlite'),
             value: 'yesterday',
             startDate: getSubOrAddDaysDate('sub', 1),
             endDate: getSubOrAddDaysDate('sub', 1),
         },
         {
-            name: __('This Month', 'cp'),
+            name: __('This Month', 'botlite'),
             value: 'thisMonth',
             startDate: getFormattedDate(startOfMonth(new Date())),
             endDate: getFormattedDate(
@@ -62,19 +62,19 @@ export default function DatePickerData(): Array<IDatePickerData> {
             ),
         },
         {
-            name: __('Last 7 Days', 'cp'),
+            name: __('Last 7 Days', 'botlite'),
             value: 'last7Days',
             startDate: getSubOrAddDaysDate('sub', 7),
             endDate: currentDate,
         },
         {
-            name: __('Last 30 Days', 'cp'),
+            name: __('Last 30 Days', 'botlite'),
             value: 'last30Days',
             startDate: getSubOrAddDaysDate('sub', 30),
             endDate: currentDate,
         },
         {
-            name: __('Last Week', 'cp'),
+            name: __('Last Week', 'botlite'),
             value: 'lastWeek',
             startDate: getFormattedDate(
                 sub(endOfWeek(new Date()), { days: 14 })
@@ -82,7 +82,7 @@ export default function DatePickerData(): Array<IDatePickerData> {
             endDate: getFormattedDate(sub(endOfWeek(new Date()), { days: 8 })),
         },
         {
-            name: __('Last Month', 'cp'),
+            name: __('Last Month', 'botlite'),
             value: 'lastMonth',
             startDate: getFormattedDate(
                 sub(startOfMonth(new Date()), { months: 1 })
@@ -92,7 +92,7 @@ export default function DatePickerData(): Array<IDatePickerData> {
             ),
         },
         {
-            name: __('Last Quarter', 'cp'),
+            name: __('Last Quarter', 'botlite'),
             value: 'lastQuarter',
             startDate: getFormattedDate(
                 sub(startOfMonth(new Date()), { months: 3 })
@@ -102,7 +102,7 @@ export default function DatePickerData(): Array<IDatePickerData> {
             ),
         },
         {
-            name: __('Last Year', 'cp'),
+            name: __('Last Year', 'botlite'),
             value: 'lastYear',
             startDate: getFormattedDate(
                 sub(startOfYear(new Date()), { years: 1 })
@@ -112,7 +112,7 @@ export default function DatePickerData(): Array<IDatePickerData> {
             ),
         },
         {
-            name: __('Last 6 months', 'cp'),
+            name: __('Last 6 months', 'botlite'),
             value: 'last6Months',
             startDate: getFormattedDate(
                 sub(startOfMonth(new Date()), { months: 6 })
@@ -122,7 +122,7 @@ export default function DatePickerData(): Array<IDatePickerData> {
             ),
         },
         {
-            name: __('Last 12 months', 'cp'),
+            name: __('Last 12 months', 'botlite'),
             value: 'last12Months',
             startDate: getFormattedDate(
                 sub(startOfMonth(new Date()), { months: 12 })
@@ -132,13 +132,13 @@ export default function DatePickerData(): Array<IDatePickerData> {
             ),
         },
         {
-            name: __('All Time', 'cp'),
+            name: __('All Time', 'botlite'),
             value: 'allTime',
             startDate: '-1',
             endDate: '-1',
         },
         {
-            name: __('Custom Range', 'cp'),
+            name: __('Custom Range', 'botlite'),
             value: 'customRange',
             startDate: '',
             endDate: '',
